@@ -4,18 +4,18 @@ vendor
 Gemfile.lock
 
 # Jekyll cache
-.jekyll-cache
-.jekyll-metadata
-_site
+# .jekyll-cache
+# .jekyll-metadata
+# _site
 
-# RubyGems
+# # RubyGems
 *.gem
 
-# NPM dependencies
+# # NPM dependencies
 node_modules
 package-lock.json
 
-# IDE configurations
+# # IDE configurations
 .idea
 .vscode/*
 !.vscode/settings.json
