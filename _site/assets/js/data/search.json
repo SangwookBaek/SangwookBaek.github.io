@@ -22,14 +22,6 @@
     "tags": "writing",
     "date": "2019-08-08 15:10:00 +0900",
     "content": "This tutorial will guide you how to write a post in the Chirpy template, and it’s worth reading even if you’ve used Jekyll before, as many features require specific variables to be set.  Naming and..."
-  },
-  {
-    "title": "Text and Typography",
-    "url": "/posts/text-and-typography/",
-    "categories": "Blogging, Demo",
-    "tags": "typography",
-    "date": "2019-08-08 12:33:00 +0900",
-    "content": "Examples of text, typography, math equations, diagrams, flowcharts, pictures, videos, and more."
   }
   
 ]
