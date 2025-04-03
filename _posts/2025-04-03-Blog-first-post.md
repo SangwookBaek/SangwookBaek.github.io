@@ -7,8 +7,9 @@ tags: [apache_arrow]     # TAG names should always be lowercase]
 ---
 
 ## Intro
-movie lens 데이터에 대해서 추천시스템 예제 코드를 보고 재구현 하던 중 데이터를 읽어오는 부분이 너무 느려서 답답함을 느꼈고  
-pandas로 써져있는걸 보고 일단 이것부터 수정해야겠다는 생각을 했고 수정하는 과정과 수정환 결과를 공유하려고 합니다.
+MovieLens 데이터를 활용한 추천 시스템 예제 코드를 재구현하던 중, 데이터를 읽어오는 속도가 너무 느려 답답함을 느꼈습니다.
+기존 코드가 `pandas` 기반으로 작성되어 있었기 때문에, 데이터 로딩 속도 개선을 위해 해당 부분을 가장 먼저 수정해야겠다고 판단하였습니다.
+이 과정에서 겪은 시행착오와 개선 결과를 공유드리고자 합니다.
 
 
 ## Dask 와 Apache Arrow
@@ -43,47 +44,49 @@ Dask는 모든 Pandas 연산을 완벽하게 지원하지 않습니다. 특히 �
 
 
 ## pyarrow로 전환
-pyarrow은 다음과 같은 특징을 같다.
+PyArrow는 다음과 같은 특징을 가지고 있습니다.
 - Columnar Format
 - zero - copy IO
 - 직렬화/역직렬화 없이 바로 IO 가능 
 
 
 ### Columnar Format
-시스템의 메모리를 배우다보면 row major / column major 접근을 배울 수 있다.  메모리를 row를 기준으로 연속적일지, column을 기준으로 연속적일지에 대한 내용이다.   
-그런데 보통은 row major를 사용하는데 apache arrow에서는 columnar format을 왜 이용하고 결과적으로 왜 빠를까?
+시스템 메모리 구조를 학습하면 row-major / column-major 접근 방식의 차이를 이해할 수 있습니다.  
+보통은 row-major 방식이 일반적이지만, Apache Arrow는 columnar format을 사용합니다.  
+이를 왜 사용하는지, 그리고 실제로 얼마나 빠른지를 예시와 함께 설명드립니다.
 
 
-100개의 row, 20개의 column으로 구성된 panda dataframe을 numpy or pytorch로 처리하는 과정을 생각해보자.  
+100개의 row, 20개의 column으로 구성된 DataFrame에서 특정 열(예: rating)에 접근한다고 가정해보았습니다.
 
-- dataframe에서 특정 열에 접근한다.(e.g.  rating , etc)   
-    -  pandas에서는 row 단위로 저장이 되어있다. age가 rating이 3번째 column이라면 100개의 rating을 접근하려면 [0][2],[1][2],...,[99][2]를 접근해야한다.
+
+- dataframe에서 특정 열에 접근합니다.(e.g.  rating , etc)   
+    -  pandas에서는 row 단위로 저장이 되어있습니다. age가 rating이 3번째 column이라면 100개의 rating을 접근하려면 [0][2],[1][2],...,[99][2]를 접근해야합니다.
     - row major에서 메모리 access를 찍어보면 
     start +0 x 20(num_columns) x size_of_column + 2 * size_of_row  
     start +1 x 20(num_columns) x size_of_column + 2 * size_of_row  
     start +2 x 20(num_columns) x size_of_column + 2 * size_of_row  
     ...   
     start +99 x 20(num_columns) x size_of_column + 2 * size_of_row    
-    와 같이 접근하는데, 이것은 일단 cache affinity가 낮기 때문에 느리다.
-- 이를 ndarray나 torch.tensor로 바꾼다. 그리고 연산을 수행한다.
-    - ndarray나 torch.tensor로 바꾸기 위해서는 **copy**가 발생한다.
-    - ndarray와 tensor는 뽑힌 값들을 row로 가지게 됩니다. 간단히 생각하면 column단위로 저장 및 접근했던게 array로 바뀌면 row 단위로 저장 및 접근할 수 있게 되는 것이다.
-    - 하나의 메모리에서 이걸 할 수 없으니까 따로 **copy**가 발생함 -> 느려짐
+    와 같이 접근하는데, 이것은 일단 cache affinity가 낮기 때문에 느립니다.
+- 이를 ndarray나 torch.tensor로 바꾸고 연산을 수행합니다.
+    - ndarray나 torch.tensor로 바꾸기 위해서는 **copy**가 발생할 수 밖에 없습니다. 이유는 아래와 같습니다.
+    - ndarray와 tensor는 뽑힌 값들을 row로 가지게 됩니다. 간단히 생각하면 column단위로 저장 및 접근했던게 array로 바뀌면 row 단위로 저장 및 접근할 수 있게 됩니다.
+    - 하나의 메모리에서 이걸 할 수 없으니까 따로 **copy**가 발생하고 느려집니다.
 
 정리하자면 row wise 접근에서 column 단위로 데이터를 뽑아 다시 row 단위의 배열로 변환시켜 처리하는 과정이 굉장히 느릴 수 밖에 없습니다.
 
 --- 
 Apache Arrow -> numpy or torch.tensor를 봐보면 
-- dataframe에서 특정 열에 접근한다.(e.g.  rating , etc)   
-    -  pandas에서는 row 단위로 저장이 되어있다. age가 rating이 3번째 column이라면 100개의 rating을 접근하려면 [0][2],[1][2],...,[99][2]를 접근해야한다.
+- dataframe에서 특정 열에 접근합니다.(e.g.  rating , etc)   
+    -  pandas에서는 row 단위로 저장이 되어있습니다. age가 rating이 3번째 column이라면 100개의 rating을 접근하려면 [0][2],[1][2],...,[99][2]를 접근해야합니다.
     - row major에서 메모리 access를 찍어보면 
     start + 2(column index) x size_of_row + 0 * size_of_column  
     start + 2(column index) x size_of_row + 1 * size_of_column  
     start + 2(column index) x size_of_row + 2 * size_of_column  
     ...   
     start + 2(column index) x size_of_row + 99 * size_of_column   
-    와 같이 접근하는데, 보면 size_of_column만큼만 증가한다. 애초에 memory 상에서 continuous하게 존재할 것이기 때문에 cache affinity가 매우 높고 빠를 수 밖에 없다.
-- 이를 ndarray나 torch.tensor로 바꾼다. 그리고 연산을 수행한다.
+    와 같이 접근하는데, 보면 size_of_column만큼만 증가합니다. 애초에 memory 상에서 continuous하게 존재할 것이고 cache affinity가 매우 높아 빠를 수 밖에 없습니다.
+- 이를 ndarray나 torch.tensor로 바꾸고 연산을 수행합니다.
     - apache arrow를 통해 처리한 값을 column으로 접근하지만, 그 저장은 row로 되어있습니다. 그래서 별도의 copy없이 이 값을 바로 indexing/처리합니다.
 
 정리하자면 columnar 접근을 하기 때문에 dataframe에서 열단위로 데이터를 뽑고 처리할 때 메모리 접근 자체 속도도 빠르고 별도의 copy가 생기지 않는게 장점입니다.
@@ -102,8 +105,8 @@ pandas, dask, apache arrow기반으로 코드를 작성했고 속도를 비교�
 
 이론대로 apache arrow가 미친듯이 빠른 속도를 냈습니다.
 
-dask가 pandas보다 느린 이유에 대해서 생각해봤는데, dask는 결국 대용량 데이터를 멀티 인스턴스로 **안정적**으로 처리하는데 장점이 있는거지 속도를 빠르게 해주지는 않는게 당연하더라구요.  
-분산처리 준비를 하는 과정 (task graph 생성 등)에서 오버헤드가 걸리고 lazy evaluation방식을 쓰는데 무슨 처리를 하냐에 따라 병목이 발생하면 한방에 메모리에 올려서 처리하는 pandas보다 느릴 수 밖에 없더라구요.
+dask가 pandas보다 느린 이유에 대해서 생각해봤는데, dask는 결국 대용량 데이터를 멀티 인스턴스로 **안정적**으로 처리하는데 장점이 있는거지 속도를 무조건적으로 빠르지는 않은게 당연한 것 같습니다.  
+분산처리 준비를 하는 과정 (task graph 생성 등)에서 오버헤드가 걸리고 lazy evaluation방식을 쓰는데 무슨 처리를 하냐에 따라 병목이 발생하면 한방에 메모리에 올려서 처리하는 pandas보다 느릴 수 밖에 없습니다.
 
 `요약`  
 - dask : 대규모 데이터에 대한 병렬분산 처리를 제공 / 중규모에서는 오버헤드 때문에 오히려 느릴 수 있고 병렬처리 특성상 지원하지 못하는 연산도 있음
