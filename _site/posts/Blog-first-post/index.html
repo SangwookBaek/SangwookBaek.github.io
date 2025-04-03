@@ -31,10 +31,10 @@
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Apache Arrow를 이용해서 데이터 빨리 읽기" />
-<meta name="author" content="oogie" />
+<meta name="author" content="Sangwook Baek" />
 <meta property="og:locale" content="ko_KR" />
-<meta name="description" content="Intro movie lens 데이터에 대해서 추천시스템 예제 코드를 보고 재구현 하던 중 데이터를 읽어오는 부분이 너무 느려서 답답함을 느꼈고 pandas로 써져있는걸 보고 일단 이것부터 수정해야겠다는 생각을 했고 수정하는 과정과 수정환 결과를 공유하려고 합니다." />
-<meta property="og:description" content="Intro movie lens 데이터에 대해서 추천시스템 예제 코드를 보고 재구현 하던 중 데이터를 읽어오는 부분이 너무 느려서 답답함을 느꼈고 pandas로 써져있는걸 보고 일단 이것부터 수정해야겠다는 생각을 했고 수정하는 과정과 수정환 결과를 공유하려고 합니다." />
+<meta name="description" content="Intro MovieLens 데이터를 활용한 추천 시스템 예제 코드를 재구현하던 중, 데이터를 읽어오는 속도가 너무 느려 답답함을 느꼈습니다. 기존 코드가 pandas 기반으로 작성되어 있었기 때문에, 데이터 로딩 속도 개선을 위해 해당 부분을 가장 먼저 수정해야겠다고 판단하였습니다. 이 과정에서 겪은 시행착오와 개선 결과를 공유드리고자 합니다." />
+<meta property="og:description" content="Intro MovieLens 데이터를 활용한 추천 시스템 예제 코드를 재구현하던 중, 데이터를 읽어오는 속도가 너무 느려 답답함을 느꼈습니다. 기존 코드가 pandas 기반으로 작성되어 있었기 때문에, 데이터 로딩 속도 개선을 위해 해당 부분을 가장 먼저 수정해야겠다고 판단하였습니다. 이 과정에서 겪은 시행착오와 개선 결과를 공유드리고자 합니다." />
 <link rel="canonical" href="http://localhost:4000/posts/Blog-first-post/" />
 <meta property="og:url" content="http://localhost:4000/posts/Blog-first-post/" />
 <meta property="og:site_name" content="oogie" />
@@ -43,7 +43,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Apache Arrow를 이용해서 데이터 빨리 읽기" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oogie"},"dateModified":"2025-04-03T13:59:00+09:00","datePublished":"2025-04-03T13:59:00+09:00","description":"Intro movie lens 데이터에 대해서 추천시스템 예제 코드를 보고 재구현 하던 중 데이터를 읽어오는 부분이 너무 느려서 답답함을 느꼈고 pandas로 써져있는걸 보고 일단 이것부터 수정해야겠다는 생각을 했고 수정하는 과정과 수정환 결과를 공유하려고 합니다.","headline":"Apache Arrow를 이용해서 데이터 빨리 읽기","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/Blog-first-post/"},"url":"http://localhost:4000/posts/Blog-first-post/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Sangwook Baek","url":"https://github.com/SangwookBaek/"},"dateModified":"2025-04-03T21:24:59+09:00","datePublished":"2025-04-03T13:59:00+09:00","description":"Intro MovieLens 데이터를 활용한 추천 시스템 예제 코드를 재구현하던 중, 데이터를 읽어오는 속도가 너무 느려 답답함을 느꼈습니다. 기존 코드가 pandas 기반으로 작성되어 있었기 때문에, 데이터 로딩 속도 개선을 위해 해당 부분을 가장 먼저 수정해야겠다고 판단하였습니다. 이 과정에서 겪은 시행착오와 개선 결과를 공유드리고자 합니다.","headline":"Apache Arrow를 이용해서 데이터 빨리 읽기","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/Blog-first-post/"},"url":"http://localhost:4000/posts/Blog-first-post/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -250,7 +250,6 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4949605970350780"
      crossorigin="anonymous"></script>
 </head>
-
 
   <body>
     <!-- The Side Bar -->
@@ -696,6 +695,29 @@
 
       <!-- lastmod date -->
       
+        <span>
+          업데이트
+          <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1743683099"
+  data-df="YYYY/MM/DD"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  2025/04/03
+</time>
+
+        </span>
+      
 
       
 
@@ -709,7 +731,7 @@
           <em>
             
               
-                
+                <a href="https://github.com/SangwookBaek/">Sangwook Baek</a>
                 
               
             
@@ -741,7 +763,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="2182 단어"
+  title="2245 단어"
 >
   <em>12 분</em>읽는 시간</span>
 
@@ -776,8 +798,9 @@
 
   <div class="content">
     <h2 id="intro"><span class="me-2">Intro</span><a href="#intro" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>movie lens 데이터에 대해서 추천시스템 예제 코드를 보고 재구현 하던 중 데이터를 읽어오는 부분이 너무 느려서 답답함을 느꼈고<br />
-pandas로 써져있는걸 보고 일단 이것부터 수정해야겠다는 생각을 했고 수정하는 과정과 수정환 결과를 공유하려고 합니다.</p>
+<p>MovieLens 데이터를 활용한 추천 시스템 예제 코드를 재구현하던 중, 데이터를 읽어오는 속도가 너무 느려 답답함을 느꼈습니다.
+기존 코드가 <code class="language-plaintext highlighter-rouge">pandas</code> 기반으로 작성되어 있었기 때문에, 데이터 로딩 속도 개선을 위해 해당 부분을 가장 먼저 수정해야겠다고 판단하였습니다.
+이 과정에서 겪은 시행착오와 개선 결과를 공유드리고자 합니다.</p>
 
 <h2 id="dask-와-apache-arrow"><span class="me-2">Dask 와 Apache Arrow</span><a href="#dask-와-apache-arrow" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 <p>pandas의 대안으로 <strong>Dask</strong> 와 <strong>Apache Arrow</strong> 2가지를 고려했습니다.</p>
@@ -807,7 +830,7 @@ pandas로 써져있는걸 보고 일단 이것부터 수정해야겠다는 생�
 사용자별 최신 평가 항목을 찾는 작업 같은 경우, 각 사용자의 모든 데이터를 한 번에 볼 수 있어야 정확한 결과가 나오는데, Dask의 분산 특성 때문에 이런 작업에는 한계가 있다는걸 알았습니다</p>
 
 <h2 id="pyarrow로-전환"><span class="me-2">pyarrow로 전환</span><a href="#pyarrow로-전환" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>pyarrow은 다음과 같은 특징을 같다.</p>
+<p>PyArrow는 다음과 같은 특징을 가지고 있습니다.</p>
 <ul>
   <li>Columnar Format</li>
   <li>zero - copy IO</li>
@@ -815,29 +838,30 @@ pandas로 써져있는걸 보고 일단 이것부터 수정해야겠다는 생�
 </ul>
 
 <h3 id="columnar-format"><span class="me-2">Columnar Format</span><a href="#columnar-format" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<p>시스템의 메모리를 배우다보면 row major / column major 접근을 배울 수 있다.  메모리를 row를 기준으로 연속적일지, column을 기준으로 연속적일지에 대한 내용이다. <br />
-그런데 보통은 row major를 사용하는데 apache arrow에서는 columnar format을 왜 이용하고 결과적으로 왜 빠를까?</p>
+<p>시스템 메모리 구조를 학습하면 row-major / column-major 접근 방식의 차이를 이해할 수 있습니다.<br />
+보통은 row-major 방식이 일반적이지만, Apache Arrow는 columnar format을 사용합니다.<br />
+이를 왜 사용하는지, 그리고 실제로 얼마나 빠른지를 예시와 함께 설명드립니다.</p>
 
-<p>100개의 row, 20개의 column으로 구성된 panda dataframe을 numpy or pytorch로 처리하는 과정을 생각해보자.</p>
+<p>100개의 row, 20개의 column으로 구성된 DataFrame에서 특정 열(예: rating)에 접근한다고 가정해보았습니다.</p>
 
 <ul>
-  <li>dataframe에서 특정 열에 접근한다.(e.g.  rating , etc)
+  <li>dataframe에서 특정 열에 접근합니다.(e.g.  rating , etc)
     <ul>
-      <li>pandas에서는 row 단위로 저장이 되어있다. age가 rating이 3번째 column이라면 100개의 rating을 접근하려면 [0][2],[1][2],…,[99][2]를 접근해야한다.</li>
+      <li>pandas에서는 row 단위로 저장이 되어있습니다. age가 rating이 3번째 column이라면 100개의 rating을 접근하려면 [0][2],[1][2],…,[99][2]를 접근해야합니다.</li>
       <li>row major에서 메모리 access를 찍어보면 
   start +0 x 20(num_columns) x size_of_column + 2 * size_of_row<br />
   start +1 x 20(num_columns) x size_of_column + 2 * size_of_row<br />
   start +2 x 20(num_columns) x size_of_column + 2 * size_of_row<br />
   … <br />
   start +99 x 20(num_columns) x size_of_column + 2 * size_of_row  <br />
-  와 같이 접근하는데, 이것은 일단 cache affinity가 낮기 때문에 느리다.</li>
+  와 같이 접근하는데, 이것은 일단 cache affinity가 낮기 때문에 느립니다.</li>
     </ul>
   </li>
-  <li>이를 ndarray나 torch.tensor로 바꾼다. 그리고 연산을 수행한다.
+  <li>이를 ndarray나 torch.tensor로 바꾸고 연산을 수행합니다.
     <ul>
-      <li>ndarray나 torch.tensor로 바꾸기 위해서는 <strong>copy</strong>가 발생한다.</li>
-      <li>ndarray와 tensor는 뽑힌 값들을 row로 가지게 됩니다. 간단히 생각하면 column단위로 저장 및 접근했던게 array로 바뀌면 row 단위로 저장 및 접근할 수 있게 되는 것이다.</li>
-      <li>하나의 메모리에서 이걸 할 수 없으니까 따로 <strong>copy</strong>가 발생함 -&gt; 느려짐</li>
+      <li>ndarray나 torch.tensor로 바꾸기 위해서는 <strong>copy</strong>가 발생할 수 밖에 없습니다. 이유는 아래와 같습니다.</li>
+      <li>ndarray와 tensor는 뽑힌 값들을 row로 가지게 됩니다. 간단히 생각하면 column단위로 저장 및 접근했던게 array로 바뀌면 row 단위로 저장 및 접근할 수 있게 됩니다.</li>
+      <li>하나의 메모리에서 이걸 할 수 없으니까 따로 <strong>copy</strong>가 발생하고 느려집니다.</li>
     </ul>
   </li>
 </ul>
@@ -847,19 +871,19 @@ pandas로 써져있는걸 보고 일단 이것부터 수정해야겠다는 생�
 <hr />
 <p>Apache Arrow -&gt; numpy or torch.tensor를 봐보면</p>
 <ul>
-  <li>dataframe에서 특정 열에 접근한다.(e.g.  rating , etc)
+  <li>dataframe에서 특정 열에 접근합니다.(e.g.  rating , etc)
     <ul>
-      <li>pandas에서는 row 단위로 저장이 되어있다. age가 rating이 3번째 column이라면 100개의 rating을 접근하려면 [0][2],[1][2],…,[99][2]를 접근해야한다.</li>
+      <li>pandas에서는 row 단위로 저장이 되어있습니다. age가 rating이 3번째 column이라면 100개의 rating을 접근하려면 [0][2],[1][2],…,[99][2]를 접근해야합니다.</li>
       <li>row major에서 메모리 access를 찍어보면 
   start + 2(column index) x size_of_row + 0 * size_of_column<br />
   start + 2(column index) x size_of_row + 1 * size_of_column<br />
   start + 2(column index) x size_of_row + 2 * size_of_column<br />
   … <br />
   start + 2(column index) x size_of_row + 99 * size_of_column <br />
-  와 같이 접근하는데, 보면 size_of_column만큼만 증가한다. 애초에 memory 상에서 continuous하게 존재할 것이기 때문에 cache affinity가 매우 높고 빠를 수 밖에 없다.</li>
+  와 같이 접근하는데, 보면 size_of_column만큼만 증가합니다. 애초에 memory 상에서 continuous하게 존재할 것이고 cache affinity가 매우 높아 빠를 수 밖에 없습니다.</li>
     </ul>
   </li>
-  <li>이를 ndarray나 torch.tensor로 바꾼다. 그리고 연산을 수행한다.
+  <li>이를 ndarray나 torch.tensor로 바꾸고 연산을 수행합니다.
     <ul>
       <li>apache arrow를 통해 처리한 값을 column으로 접근하지만, 그 저장은 row로 되어있습니다. 그래서 별도의 copy없이 이 값을 바로 indexing/처리합니다.</li>
     </ul>
@@ -882,8 +906,8 @@ pandas로 써져있는걸 보고 일단 이것부터 수정해야겠다는 생�
 
 <p>이론대로 apache arrow가 미친듯이 빠른 속도를 냈습니다.</p>
 
-<p>dask가 pandas보다 느린 이유에 대해서 생각해봤는데, dask는 결국 대용량 데이터를 멀티 인스턴스로 <strong>안정적</strong>으로 처리하는데 장점이 있는거지 속도를 빠르게 해주지는 않는게 당연하더라구요.<br />
-분산처리 준비를 하는 과정 (task graph 생성 등)에서 오버헤드가 걸리고 lazy evaluation방식을 쓰는데 무슨 처리를 하냐에 따라 병목이 발생하면 한방에 메모리에 올려서 처리하는 pandas보다 느릴 수 밖에 없더라구요.</p>
+<p>dask가 pandas보다 느린 이유에 대해서 생각해봤는데, dask는 결국 대용량 데이터를 멀티 인스턴스로 <strong>안정적</strong>으로 처리하는데 장점이 있는거지 속도를 무조건적으로 빠르지는 않은게 당연한 것 같습니다.<br />
+분산처리 준비를 하는 과정 (task graph 생성 등)에서 오버헤드가 걸리고 lazy evaluation방식을 쓰는데 무슨 처리를 하냐에 따라 병목이 발생하면 한방에 메모리에 올려서 처리하는 pandas보다 느릴 수 밖에 없습니다.</p>
 
 <p><code class="language-plaintext highlighter-rouge">요약</code></p>
 <ul>

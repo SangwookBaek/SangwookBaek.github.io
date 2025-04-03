@@ -3,8 +3,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://localhost:4000/</id>
   <title>oogie</title>
-  <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2025-04-03T17:40:40+09:00</updated>
+  <subtitle>Writing about AI and engineering, focusing on practical and impactful technologies.</subtitle>
+  <updated>2025-04-03T22:07:51+09:00</updated>
   <author>
     <name>oogie</name>
     <uri>http://localhost:4000/</uri>
@@ -24,7 +24,7 @@
     <link href="http://localhost:4000/posts/Blog-first-post/" rel="alternate" type="text/html" title="Apache Arrow를 이용해서 데이터 빨리 읽기" />
     <published>2025-04-03T13:59:00+09:00</published>
   
-    <updated>2025-04-03T13:59:00+09:00</updated>
+    <updated>2025-04-03T21:24:59+09:00</updated>
   
     <id>http://localhost:4000/posts/Blog-first-post/</id>
     <content type="text/html" src="http://localhost:4000/posts/Blog-first-post/" />
@@ -38,7 +38,7 @@
     
   
 
-  <summary>Intro movie lens 데이터에 대해서 추천시스템 예제 코드를 보고 재구현 하던 중 데이터를 읽어오는 부분이 너무 느려서 답답함을 느꼈고 pandas로 써져있는걸 보고 일단 이것부터 수정해야겠다는 생각을 했고 수정하는 과정과 수정환 결과를 공유하려고 합니다.  Dask 와 Apache Arrow pandas의 대안으로 Dask 와 Apache Arrow 2가지를 고려했습니다.  Dask는 병렬 분산 데이터 처리를 지원하는 모듈로 알고 있고 대규모 데이터를 처리할 때 안정적이고 빠르게 수행할 수 있는 것이 장점입니다.  Apache Arrow는 column wise 메모리 접근을 한다는 것이 특징이고 데이터 직렬화/역직렬화 없이 빠른 IO를 수행하는 것이 장점입니다.  이는 어디까지나 이론으로 알...</summary>
+  <summary>Intro MovieLens 데이터를 활용한 추천 시스템 예제 코드를 재구현하던 중, 데이터를 읽어오는 속도가 너무 느려 답답함을 느꼈습니다. 기존 코드가 pandas 기반으로 작성되어 있었기 때문에, 데이터 로딩 속도 개선을 위해 해당 부분을 가장 먼저 수정해야겠다고 판단하였습니다. 이 과정에서 겪은 시행착오와 개선 결과를 공유드리고자 합니다.  Dask 와 Apache Arrow pandas의 대안으로 Dask 와 Apache Arrow 2가지를 고려했습니다.  Dask는 병렬 분산 데이터 처리를 지원하는 모듈로 알고 있고 대규모 데이터를 처리할 때 안정적이고 빠르게 수행할 수 있는 것이 장점입니다.  Apache Arrow는 column wise 메모리 접근을 한다는 것이 특징이고 데이터 직렬화/...</summary>
 
   </entry>
 
