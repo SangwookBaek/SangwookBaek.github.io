@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>oogie</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2025-04-02T23:39:18+09:00</updated>
+  <updated>2025-04-03T16:56:28+09:00</updated>
   <author>
     <name>oogie</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,56 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Apache Arrow를 이용해서 데이터 빨리 읽기</title>
+    <link href="http://localhost:4000/posts/Blog-first-post/" rel="alternate" type="text/html" title="Apache Arrow를 이용해서 데이터 빨리 읽기" />
+    <published>2025-04-03T13:59:00+09:00</published>
+  
+    <updated>2025-04-03T13:59:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/Blog-first-post/</id>
+    <content type="text/html" src="http://localhost:4000/posts/Blog-first-post/" />
+    <author>
+      <name>oogie</name>
+    </author>
+
+  
+    
+    <category term="Data_engineering" />
+    
+  
+
+  <summary>Intro movie lens 데이터에 대해서 추천시스템 예제 코드를 보고 재구현 하던 중 데이터를 읽어오는 부분이 너무 느려서 답답함을 느꼈고 pandas로 써져있는걸 보고 일단 이것부터 수정해야겠다는 생각을 했고 수정하는 과정과 수정환 결과를 공유하려고 합니다.  Dask 와 Apache Arrow pandas의 대안으로 Dask 와 Apache Arrow 2가지를 고려했습니다.  Dask는 병렬 분산 데이터 처리를 지원하는 모듈로 알고 있고 대규모 데이터를 처리할 때 안정적이고 빠르게 수행할 수 있는 것이 장점입니다.  Apache Arrow는 column wise 메모리 접근을 한다는 것이 특징이고 데이터 직렬화/역직렬화 없이 빠른 IO를 수행하는 것이 장점입니다.  이는 어디까지나 이론으로 알...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Text and Typography</title>
+    <link href="http://localhost:4000/posts/text-and-typography/" rel="alternate" type="text/html" title="Text and Typography" />
+    <published>2019-08-08T12:33:00+09:00</published>
+  
+    <updated>2025-04-02T23:30:26+09:00</updated>
+  
+    <id>http://localhost:4000/posts/text-and-typography/</id>
+    <content type="text/html" src="http://localhost:4000/posts/text-and-typography/" />
+    <author>
+      <name>cotes</name>
+    </author>
+
+  
+    
+    <category term="Blogging" />
+    
+    <category term="Demo" />
+    
+  
+
+  <summary>Examples of text, typography, math equations, diagrams, flowcharts, pictures, videos, and more.</summary>
+
+  </entry>
 
 </feed>
 

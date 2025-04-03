@@ -1,4 +1,20 @@
 [
+  {
+    "title": "Apache Arrow를 이용해서 데이터 빨리 읽기",
+    "url": "/posts/Blog-first-post/",
+    "categories": "Data_engineering",
+    "tags": "apache_arrow",
+    "date": "2025-04-03 13:59:00 +0900",
+    "content": "Intro movie lens 데이터에 대해서 추천시스템 예제 코드를 보고 재구현 하던 중 데이터를 읽어오는 부분이 너무 느려서 답답함을 느꼈고 pandas로 써져있는걸 보고 일단 이것부터 수정해야겠다는 생각을 했고 수정하는 과정과 수정환 결과를 공유하려고 합니다.  Dask 와 Apache Arrow pandas의 대안으로 Dask 와 Apache ..."
+  },
+  {
+    "title": "Text and Typography",
+    "url": "/posts/text-and-typography/",
+    "categories": "Blogging, Demo",
+    "tags": "typography",
+    "date": "2019-08-08 12:33:00 +0900",
+    "content": "Examples of text, typography, math equations, diagrams, flowcharts, pictures, videos, and more."
+  }
   
 ]
 
