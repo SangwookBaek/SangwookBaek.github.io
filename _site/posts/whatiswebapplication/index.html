@@ -30,26 +30,27 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Apache Arrow를 이용해서 데이터 빨리 읽기" />
+<meta property="og:title" content="웹 애플리케이션의 구성요소에 대해서" />
 <meta name="author" content="Sangwook Baek" />
 <meta property="og:locale" content="ko_KR" />
-<meta name="description" content="Intro MovieLens 데이터를 활용한 추천 시스템 예제 코드를 재구현하던 중, 데이터를 읽어오는 속도가 너무 느려 답답함을 느꼈습니다. 기존 코드가 pandas 기반으로 작성되어 있었기 때문에, 데이터 로딩 속도 개선을 위해 해당 부분을 가장 먼저 수정해야겠다고 판단하였습니다. 이 과정에서 겪은 시행착오와 개선 결과를 공유드리고자 합니다." />
-<meta property="og:description" content="Intro MovieLens 데이터를 활용한 추천 시스템 예제 코드를 재구현하던 중, 데이터를 읽어오는 속도가 너무 느려 답답함을 느꼈습니다. 기존 코드가 pandas 기반으로 작성되어 있었기 때문에, 데이터 로딩 속도 개선을 위해 해당 부분을 가장 먼저 수정해야겠다고 판단하였습니다. 이 과정에서 겪은 시행착오와 개선 결과를 공유드리고자 합니다." />
-<link rel="canonical" href="http://localhost:4000/posts/Blog-first-post/" />
-<meta property="og:url" content="http://localhost:4000/posts/Blog-first-post/" />
+<meta name="description" content="Intro 많은 서비스들이 웹기반으로 제공되는데요 이러한 웹 애플리케이션이 어떻게 구성되는지, 각 용어들이 어떤 의미인지 정리해봅니다." />
+<meta property="og:description" content="Intro 많은 서비스들이 웹기반으로 제공되는데요 이러한 웹 애플리케이션이 어떻게 구성되는지, 각 용어들이 어떤 의미인지 정리해봅니다." />
+<link rel="canonical" href="http://localhost:4000/posts/whatiswebapplication/" />
+<meta property="og:url" content="http://localhost:4000/posts/whatiswebapplication/" />
 <meta property="og:site_name" content="oogie" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-04-03T13:59:00+09:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Apache Arrow를 이용해서 데이터 빨리 읽기" />
+<meta property="article:published_time" content="2025-04-03T22:52:00+09:00" />
+<meta property="og:image" content="http://localhost:4000/assets/img/profile.png" /><meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:image" content="http://localhost:4000/assets/img/profile.png" />
+<meta property="twitter:title" content="웹 애플리케이션의 구성요소에 대해서" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Sangwook Baek","url":"https://github.com/SangwookBaek/"},"dateModified":"2025-04-03T21:24:59+09:00","datePublished":"2025-04-03T13:59:00+09:00","description":"Intro MovieLens 데이터를 활용한 추천 시스템 예제 코드를 재구현하던 중, 데이터를 읽어오는 속도가 너무 느려 답답함을 느꼈습니다. 기존 코드가 pandas 기반으로 작성되어 있었기 때문에, 데이터 로딩 속도 개선을 위해 해당 부분을 가장 먼저 수정해야겠다고 판단하였습니다. 이 과정에서 겪은 시행착오와 개선 결과를 공유드리고자 합니다.","headline":"Apache Arrow를 이용해서 데이터 빨리 읽기","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/Blog-first-post/"},"url":"http://localhost:4000/posts/Blog-first-post/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Sangwook Baek","url":"https://github.com/SangwookBaek/"},"dateModified":"2025-04-03T22:52:00+09:00","datePublished":"2025-04-03T22:52:00+09:00","description":"Intro 많은 서비스들이 웹기반으로 제공되는데요 이러한 웹 애플리케이션이 어떻게 구성되는지, 각 용어들이 어떤 의미인지 정리해봅니다.","headline":"웹 애플리케이션의 구성요소에 대해서","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/whatiswebapplication/"},"url":"http://localhost:4000/posts/whatiswebapplication/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="description" content="Writing about AI & Engineering, focusing on practical and impactful technologies.">
   <meta property="og:description" content="Writing about AI & Engineering, focusing on practical and impactful technologies.">
 
-  <title>Apache Arrow를 이용해서 데이터 빨리 읽기 | oogie
+  <title>웹 애플리케이션의 구성요소에 대해서 | oogie
   </title>
 
   <!--
@@ -444,7 +445,7 @@
         
           
             
-              <span>Apache Arrow를 이용해서 데이터 빨리 읽기</span>
+              <span>웹 애플리케이션의 구성요소에 대해서</span>
             
 
           
@@ -637,6 +638,17 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -667,7 +679,7 @@
 
 <article class="px-1" data-toc="true">
   <header>
-    <h1 data-toc-skip>Apache Arrow를 이용해서 데이터 빨리 읽기</h1>
+    <h1 data-toc-skip>웹 애플리케이션의 구성요소에 대해서</h1>
     
 
     <div class="post-meta text-muted">
@@ -684,7 +696,7 @@
 
 <time
   
-  data-ts="1743656340"
+  data-ts="1743688320"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
@@ -696,29 +708,6 @@
       </span>
 
       <!-- lastmod date -->
-      
-        <span>
-          업데이트
-          <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1743683099"
-  data-df="YYYY/MM/DD"
-  
-    data-bs-toggle="tooltip" data-bs-placement="bottom"
-  
->
-  2025/04/03
-</time>
-
-        </span>
       
 
       
@@ -765,9 +754,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="2245 단어"
+  title="1531 단어"
 >
-  <em>12 분</em>읽는 시간</span>
+  <em>8 분</em>읽는 시간</span>
 
         </div>
       </div>
@@ -776,7 +765,7 @@
 
   
     <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
-      <span class="label text-truncate">Apache Arrow를 이용해서 데이터 빨리 읽기</span>
+      <span class="label text-truncate">웹 애플리케이션의 구성요소에 대해서</span>
       <button type="button" class="toc-trigger btn me-1">
         <i class="fa-solid fa-list-ul fa-fw"></i>
       </button>
@@ -789,7 +778,7 @@
 
     <dialog id="toc-popup" class="p-0">
       <div class="header d-flex flex-row align-items-center justify-content-between">
-        <div class="label text-truncate py-2 ms-4">Apache Arrow를 이용해서 데이터 빨리 읽기</div>
+        <div class="label text-truncate py-2 ms-4">웹 애플리케이션의 구성요소에 대해서</div>
         <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
           <i class="fas fa-close"></i>
         </button>
@@ -800,153 +789,145 @@
 
   <div class="content">
     <h2 id="intro"><span class="me-2">Intro</span><a href="#intro" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>MovieLens 데이터를 활용한 추천 시스템 예제 코드를 재구현하던 중, 데이터를 읽어오는 속도가 너무 느려 답답함을 느꼈습니다.
-기존 코드가 <code class="language-plaintext highlighter-rouge">pandas</code> 기반으로 작성되어 있었기 때문에, 데이터 로딩 속도 개선을 위해 해당 부분을 가장 먼저 수정해야겠다고 판단하였습니다.
-이 과정에서 겪은 시행착오와 개선 결과를 공유드리고자 합니다.</p>
+<p>많은 서비스들이 웹기반으로 제공되는데요 이러한 웹 애플리케이션이 어떻게 구성되는지, 각 용어들이 어떤 의미인지 정리해봅니다.</p>
 
-<h2 id="dask-와-apache-arrow"><span class="me-2">Dask 와 Apache Arrow</span><a href="#dask-와-apache-arrow" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>pandas의 대안으로 <strong>Dask</strong> 와 <strong>Apache Arrow</strong> 2가지를 고려했습니다.</p>
+<h2 id="웹-프레임워크web-framework"><span class="me-2">웹 프레임워크(Web Framework)</span><a href="#웹-프레임워크web-framework" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>웹 개발을 하다보면 웹 프레임워크라는 단어를 마주할 수 밖에 없음
+FastAPI 또한 웹프레임워크의 일종임</p>
 
-<p>Dask는 병렬 분산 데이터 처리를 지원하는 모듈로 알고 있고 대규모 데이터를 처리할 때 안정적이고 빠르게 수행할 수 있는 것이 장점입니다.</p>
+<p>그런데 FastAPI를 공부하다보면 같이 계속 묶여서 나오는 것이 Uvicorn임 그런데 이건 웹 애플리 케이션 서버임</p>
 
-<p>Apache Arrow는 column wise 메모리 접근을 한다는 것이 특징이고 데이터 직렬화/역직렬화 없이 빠른 IO를 수행하는 것이 장점입니다.</p>
+<p>그러면 웹 서버는 뭐고 웹 프레임워크는 뭐고 둘은 어떤 관계일까?</p>
 
-<p>이는 어디까지나 이론으로 알고있던거고 실제 코드로 전환하면서 생긴 시행착오랑 장단점을 정리해보려고 합니다.</p>
+<h2 id="웹-서버-web-server"><span class="me-2">웹 서버 (Web Server)</span><a href="#웹-서버-web-server" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>전체 코드는 해당 <a href="https://github.com/SangwookBaek/RecommenderSytems_Introduction/blob/main/utils/data_loader.py">링크</a>에서 확인할 수 있습니다.<br />
-데이터 로딩 중 병목이 걸리는 부분은 Dataloader._load() 이고 이 부분을 Dask와 pyarrow 기반으로 수정했습니다. <br />
-그리고 나머지 예시 코드들과의 호환성을 위해서 Dataloader.load()함수의 return값은 기존의 pandas dataframe이 되도록 설정했습니다. 이 부분에서 병목이 발생할 수 있지만 예시 코드 호환성과 가독성을 위해서 기존 포맷을 유지했습니다.</p>
+<p><code class="language-plaintext highlighter-rouge">설명</code></p>
 
-<h2 id="dask로-전환"><span class="me-2">Dask로 전환</span><a href="#dask로-전환" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>Dask의 장점은 분산처리가 된다는 것이고 pandas와 거의 동일한 형식을 가지고 있다는 것입니다. 그래서 기존 코드를 그대로 재활용해서 Dask로 전환하는 것은 어렵지 않을 것이라 예상했습니다. 그런데 생각보다 코드 변환에서 오류가 문제가 많았고 Dask는 적절한 선택이 아니었습니다.  <br />
-결론부터 말하자면 movie data, tag data는 pandas로, rating data만 Dask로 읽어오는 구조로 만들었습니다.</p>
+<p>클라이언트가 요청한 http 요청을 받아들이고 이것에 대한 응답을 반환하는 소프트웨어</p>
 
-<h3 id="데이터-크기와-작업-특성에-따른-선택"><span class="me-2">데이터 크기와 작업 특성에 따른 선택</span><a href="#데이터-크기와-작업-특성에-따른-선택" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<p>평점 데이터(ratings)는 일반적으로 매우 큰 데이터셋이라 Dask의 병렬 처리 능력이 유용합니다.<br />
-영화 정보(movies)와 태그(tags)는 상대적으로 작은 데이터셋이므로 Pandas로 처리하는 것이 더 효율적입니다.</p>
-
-<h3 id="dask의-제한사항"><span class="me-2">Dask의 제한사항</span><a href="#dask의-제한사항" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<p>Dask는 모든 Pandas 연산을 완벽하게 지원하지 않습니다. 특히 복잡한 groupby 연산이나 rank 같은 연산은 Dask에서 정확하게 구현하기 어려울 수 있는 것 같습니다.
-사용자별 최신 평가 항목을 찾는 작업 같은 경우, 각 사용자의 모든 데이터를 한 번에 볼 수 있어야 정확한 결과가 나오는데, Dask의 분산 특성 때문에 이런 작업에는 한계가 있다는걸 알았습니다</p>
-
-<h2 id="pyarrow로-전환"><span class="me-2">pyarrow로 전환</span><a href="#pyarrow로-전환" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>PyArrow는 다음과 같은 특징을 가지고 있습니다.</p>
-<ul>
-  <li>Columnar Format</li>
-  <li>zero - copy IO</li>
-  <li>직렬화/역직렬화 없이 바로 IO 가능</li>
-</ul>
-
-<h3 id="columnar-format"><span class="me-2">Columnar Format</span><a href="#columnar-format" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<p>시스템 메모리 구조를 학습하면 row-major / column-major 접근 방식의 차이를 이해할 수 있습니다.<br />
-보통은 row-major 방식이 일반적이지만, Apache Arrow는 columnar format을 사용합니다.<br />
-이를 왜 사용하는지, 그리고 실제로 얼마나 빠른지를 예시와 함께 설명드립니다.</p>
-
-<p>100개의 row, 20개의 column으로 구성된 DataFrame에서 특정 열(예: rating)에 접근한다고 가정해보았습니다.</p>
+<p><code class="language-plaintext highlighter-rouge">기능</code></p>
 
 <ul>
-  <li>dataframe에서 특정 열에 접근합니다.(e.g.  rating , etc)
-    <ul>
-      <li>pandas에서는 row 단위로 저장이 되어있습니다. age가 rating이 3번째 column이라면 100개의 rating을 접근하려면 [0][2],[1][2],…,[99][2]를 접근해야합니다.</li>
-      <li>row major에서 메모리 access를 찍어보면 
-  start +0 x 20(num_columns) x size_of_column + 2 * size_of_row<br />
-  start +1 x 20(num_columns) x size_of_column + 2 * size_of_row<br />
-  start +2 x 20(num_columns) x size_of_column + 2 * size_of_row<br />
-  … <br />
-  start +99 x 20(num_columns) x size_of_column + 2 * size_of_row  <br />
-  와 같이 접근하는데, 이것은 일단 cache affinity가 낮기 때문에 느립니다.</li>
-    </ul>
-  </li>
-  <li>이를 ndarray나 torch.tensor로 바꾸고 연산을 수행합니다.
-    <ul>
-      <li>ndarray나 torch.tensor로 바꾸기 위해서는 <strong>copy</strong>가 발생할 수 밖에 없습니다. 이유는 아래와 같습니다.</li>
-      <li>ndarray와 tensor는 뽑힌 값들을 row로 가지게 됩니다. 간단히 생각하면 column단위로 저장 및 접근했던게 array로 바뀌면 row 단위로 저장 및 접근할 수 있게 됩니다.</li>
-      <li>하나의 메모리에서 이걸 할 수 없으니까 따로 <strong>copy</strong>가 발생하고 느려집니다.</li>
-    </ul>
-  </li>
+  <li>http 요청 처리 : http 형식으로 요청된 내용을 처리해줌</li>
+  <li>정적 파일 반환 : 이미지, html, json 형식등의 정적 파일을 응답으로 반환해줌</li>
+  <li>리벅스 프록시 : <strong>다른 애플리케이션(FastAPI 등)</strong>으로 전달해주는 역할</li>
 </ul>
 
-<p>정리하자면 row wise 접근에서 column 단위로 데이터를 뽑아 다시 row 단위의 배열로 변환시켜 처리하는 과정이 굉장히 느릴 수 밖에 없습니다.</p>
+<p><code class="language-plaintext highlighter-rouge">예시</code></p>
 
-<hr />
-<p>Apache Arrow -&gt; numpy or torch.tensor를 봐보면</p>
-<ul>
-  <li>dataframe에서 특정 열에 접근합니다.(e.g.  rating , etc)
-    <ul>
-      <li>pandas에서는 row 단위로 저장이 되어있습니다. age가 rating이 3번째 column이라면 100개의 rating을 접근하려면 [0][2],[1][2],…,[99][2]를 접근해야합니다.</li>
-      <li>row major에서 메모리 access를 찍어보면 
-  start + 2(column index) x size_of_row + 0 * size_of_column<br />
-  start + 2(column index) x size_of_row + 1 * size_of_column<br />
-  start + 2(column index) x size_of_row + 2 * size_of_column<br />
-  … <br />
-  start + 2(column index) x size_of_row + 99 * size_of_column <br />
-  와 같이 접근하는데, 보면 size_of_column만큼만 증가합니다. 애초에 memory 상에서 continuous하게 존재할 것이고 cache affinity가 매우 높아 빠를 수 밖에 없습니다.</li>
-    </ul>
-  </li>
-  <li>이를 ndarray나 torch.tensor로 바꾸고 연산을 수행합니다.
-    <ul>
-      <li>apache arrow를 통해 처리한 값을 column으로 접근하지만, 그 저장은 row로 되어있습니다. 그래서 별도의 copy없이 이 값을 바로 indexing/처리합니다.</li>
-    </ul>
-  </li>
-</ul>
+<p>Nginx, Apache , …</p>
 
-<p>정리하자면 columnar 접근을 하기 때문에 dataframe에서 열단위로 데이터를 뽑고 처리할 때 메모리 접근 자체 속도도 빠르고 별도의 copy가 생기지 않는게 장점입니다.</p>
+<h2 id="웹-애플리케이션-서버was"><span class="me-2">웹 애플리케이션 서버(WAS)</span><a href="#웹-애플리케이션-서버was" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>추가로 직렬화/역직렬화가 필요없다는 것은 저장할 때 python 고유 메모리 양식이 아니라 C++, Java 등에서 쓸 수 있는 공통 메모리 양식으로 저장하기 때문에 이를 변환하는 직렬화 및 역직렬화가 필요없다는 의미이다.
-(python 라이브러리로만 활용하면 이 부분은 의미가 없는것으로 보임)</p>
+<p><code class="language-plaintext highlighter-rouge">설명</code></p>
 
-<h2 id="속도-비교"><span class="me-2">속도 비교</span><a href="#속도-비교" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>pandas, dask, apache arrow기반으로 코드를 작성했고 속도를 비교해봤습니다.</p>
+<p>웹 서버와 웹 프레임워크의 중간 징검다리 역할을 하는 것 같음</p>
+
+<p>즉 웹 서버에서 요청을 처리했을 때 프레임워크로 바로 보내는게 아님</p>
+
+<blockquote>
+  <p><strong><em>왜 중간 다리 역할이 필요하지? 
+→ 서비스의 복잡성이 높아졌기 때문</em></strong></p>
+
+</blockquote>
+
+<p>웹 서버는 정적 리소스(이미지, html 등)를 제공하는데에 최적화 되어있음</p>
+
+<p>그런데 동적 처리(사용자 인증, db 조회, 비즈니스 로직 처리 등)를 필요로하는데 이는 서버에서 직접적으로 수행하기 어려움. 그리고 애플리케이션을 실행하는 환경이 따로 필요함.</p>
+
+<blockquote>
+  <p><strong><em>근데 그러면 바로 프레임워크로 보내면 안되나?
+→ 웹 프레임워크의 부하를 줄이고 유연함을 높이기 위함</em></strong></p>
+
+</blockquote>
+
+<p>프레임워크에서 모든 요청을 직접 처리하는 구조를 만들어야하는데 이게 어렵기도 하고 불필요한 구조 같음. 가령 프레임워크에서는 애플리케이션 기능 자체를 집중 시켜놓고 이것에 대한 로드 밸런시이나 병렬화 기능을 별도의 단계에서 처리해주는게 더 효율적임 → WAS가 필요함</p>
+
+<p><code class="language-plaintext highlighter-rouge">기능</code></p>
 
 <ul>
-  <li>pandas : 23.2337초</li>
-  <li>dask : 24.2178초</li>
-  <li>apache arrow :<strong>2.3696초</strong></li>
+  <li>멀티 스레드 및 멀티프로세스 지원 : 여러개의 워커를 띄워서 동시 처리를 지원해줌</li>
+  <li>보안 : https 요청 처리를 해주거나 인증, 세션 관리 등 보안 관련 기능을 처리함 데이터 암호화도 여기서 수행가능함</li>
+  <li>로드 밸런싱 : 인스턴스에 요청을 분산할 때 이를 균등하게 관리해주는 역할을 함, 워커를 여러개 띄었을 때 각 워커에 균등하게 분포되도록 해주는 역할</li>
 </ul>
 
-<p>이론대로 apache arrow가 미친듯이 빠른 속도를 냈습니다.</p>
+<p><code class="language-plaintext highlighter-rouge">예시</code></p>
 
-<p>dask가 pandas보다 느린 이유에 대해서 생각해봤는데, dask는 결국 대용량 데이터를 멀티 인스턴스로 <strong>안정적</strong>으로 처리하는데 장점이 있는거지 속도를 무조건적으로 빠르지는 않은게 당연한 것 같습니다.<br />
-분산처리 준비를 하는 과정 (task graph 생성 등)에서 오버헤드가 걸리고 lazy evaluation방식을 쓰는데 무슨 처리를 하냐에 따라 병목이 발생하면 한방에 메모리에 올려서 처리하는 pandas보다 느릴 수 밖에 없습니다.</p>
+<p>Gunicorn, Uvicorn, Tomcat, WildFly , …</p>
 
-<p><code class="language-plaintext highlighter-rouge">요약</code></p>
+<h3 id="cgi-wsgi-asgi"><span class="me-2">CGI, WSGI, ASGI</span><a href="#cgi-wsgi-asgi" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>개념적으로 WAS를 검토한 뒤, 추가적으로 gunicorn, uvicorn등을 공부하면서 위의 개념들을 추가로 정리할 필요성을 느꼈음. 셋은 모두 WAS의 인터페이스의 일종임</p>
+
+<h3 id="cgicommon-gateway-interface"><span class="me-2">CGI(Common Gateway Interface)</span><a href="#cgicommon-gateway-interface" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>좀 찾아보니까 CGI는 오래된 개념이고 WAS에 대체된 개념으로 보임.</p>
+
+<p>그리고 어떻게보면 WAS와 같은 역할을 하지만 초기 구현 형태로 볼 수 있음.</p>
+
+<p><code class="language-plaintext highlighter-rouge">작동 방식</code></p>
+
+<ol>
+  <li>동적 요청을 받음</li>
+  <li>CGI 스크립트를 처리하는 <strong><em>프로세스를 생성</em></strong></li>
+  <li>CGI 처리 결과를 서버로 다시 반환</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">단점</code></p>
+
+<ol>
+  <li>성능 문제 : 프로세스 생성 방식이 일단 문제가 큰 것으로 보임 매번 새로 생성하는 식이로 오버헤드도 크고 트래픽을 많이 처리하기 어려움</li>
+  <li>확장성 부족 : 그리고 매번 프로세스를 생성하고 처리하는 구조라 비동기 처리가 안됌(이벤트 루프가 없음)</li>
+  <li>복잡성 : 유지보수도 어렵다고 함</li>
+</ol>
+
+<p>→ 이것을 보완하기 위해서 나온 것이 위에서 소개한 현대적인 WAS임</p>
+
+<p>현대적인 WAS는 <strong><em>스레드 기반</em></strong>으로 비동기, 로드 밸런싱 등을 지원함.</p>
+
+<h3 id="wsgi-web-server-gateway-interface"><span class="me-2">WSGI (Web Server Gateway Interface)</span><a href="#wsgi-web-server-gateway-interface" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>WSGI는 멀티 스레드 방식을 지원하지만 비동기 방식은 아님</p>
+
+<p>이는 WSGI 자체가 요청 - 응답 모델을 따르기 때문임</p>
+
+<p><code class="language-plaintext highlighter-rouge">작동 방식</code></p>
+
+<ol>
+  <li>요청이 들어오면 요청을 worker에 할당</li>
+  <li>요청 처리하고 반환전까지 요청 처리 X</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">단점</code></p>
+
+<p>단점을 결과적으로 비동기로 작동이 된다는 것임</p>
+
+<h3 id="asgi"><span class="me-2">ASGI</span><a href="#asgi" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>간단하게 생각하면 WSGI의 한계를 극복해서 이벤트 루프를 지원하고 결과적으로 비동기 I/O를 가능하게 하는 인터페이스임</p>
+
+<p>그래서 여기서부터 WebSocket, HTTP/2 프로토콜 또한 지원 가능함</p>
+
+<h2 id="다시-돌아와서-웹-프레임-워크백엔드-기준"><span class="me-2">다시 돌아와서 웹 프레임 워크(백엔드 기준)</span><a href="#다시-돌아와서-웹-프레임-워크백엔드-기준" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p><code class="language-plaintext highlighter-rouge">설명</code></p>
+
+<p>웹 애플리케이션 개발을 용이하게 만들어주는 역할을 함</p>
+
+<p>http 요청에 대해서 비즈니스 로직(or 서비스로직)을 구현하거나 데이터 베이스 상호작용 등을 처리해주는 기능과 구조를 제공하는 역할을 함.</p>
+
+<p><code class="language-plaintext highlighter-rouge">기능</code></p>
+
 <ul>
-  <li>dask : 대규모 데이터에 대한 병렬분산 처리를 제공 / 중규모에서는 오버헤드 때문에 오히려 느릴 수 있고 병렬처리 특성상 지원하지 못하는 연산도 있음</li>
-  <li>apache arrow : columnar기반의 저장으로 cache affinity가 높고 직렬화/역직렬화가 필요없으며 zero copy라는 특징이 있음</li>
+  <li>라우팅 : URL 요청 경로 맞춰서 로직 처리해줌</li>
+  <li>비즈니스 로직 처리 : 데이터 받고 데이터베이스랑 상호작용해서 로직을 수행하며 응답 생성</li>
+  <li>템플릿 렌더링 : 동적 html 페이지 생성하는 역할을 해줌</li>
+  <li>API 제공 : RESTful or GraphQL API를 개발할 수 있는 역할을 해줌</li>
 </ul>
 
-<div class="table-wrapper"><table>
-  <thead>
-    <tr>
-      <th>항목</th>
-      <th>pandas</th>
-      <th>dask</th>
-      <th>apache arrow</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>주요 역할</td>
-      <td>단일 머신에서 데이터 분석</td>
-      <td>병렬 분산 데이터 처리</td>
-      <td>메모리 내 데이터 포맷 (표준화된 컬럼 기반 구조)</td>
-    </tr>
-    <tr>
-      <td>속도</td>
-      <td>작고 중간 크기 데이터에 빠름</td>
-      <td>대용량 데이터에 적합 (병렬 처리)</td>
-      <td>데이터 직렬화/역직렬화 없이 빠른 I/O 가능</td>
-    </tr>
-    <tr>
-      <td>주요 사용</td>
-      <td>분석, 시각화, 전처리</td>
-      <td>대용량 데이터 전처리, ETL, ML pipeline</td>
-      <td>데이터 교환, zero-copy I/O, cross-language 처리</td>
-    </tr>
-  </tbody>
-</table></div>
+<p><code class="language-plaintext highlighter-rouge">예시</code></p>
+
+<p>FastAPI, Django, Flask , …</p>
 
   </div>
 
@@ -956,7 +937,7 @@
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/data-engineering/">Data_engineering</a>
+          <a href="/categories/backend/">Backend</a>
       </div>
     
 
@@ -966,9 +947,9 @@
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/apache-arrow/"
+            href="/tags/web/"
             class="post-tag no-text-decoration"
-          >apache_arrow</a>
+          >web</a>
         
       </div>
     
@@ -1004,21 +985,21 @@
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=Apache%20Arrow%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B9%A8%EB%A6%AC%20%EC%9D%BD%EA%B8%B0%20-%20oogie&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FBlog-first-post%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=%EC%9B%B9%20%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9D%98%20%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C%EC%97%90%20%EB%8C%80%ED%95%B4%EC%84%9C%20-%20oogie&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fwhatiswebapplication%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=Apache%20Arrow%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B9%A8%EB%A6%AC%20%EC%9D%BD%EA%B8%B0%20-%20oogie&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FBlog-first-post%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=%EC%9B%B9%20%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9D%98%20%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C%EC%97%90%20%EB%8C%80%ED%95%B4%EC%84%9C%20-%20oogie&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fwhatiswebapplication%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FBlog-first-post%2F&text=Apache%20Arrow%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B9%A8%EB%A6%AC%20%EC%9D%BD%EA%B8%B0%20-%20oogie" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fwhatiswebapplication%2F&text=%EC%9B%B9%20%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9D%98%20%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C%EC%97%90%20%EB%8C%80%ED%95%B4%EC%84%9C%20-%20oogie" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1073,7 +1054,21 @@
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/Blog-first-post/">Apache Arrow를 이용해서 데이터 빨리 읽기</a>
+          <a href="/posts/whatiswebapplication/">웹 애플리케이션의 구성요소에 대해서</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/why-fastapi/">FastAPI를 왜 쓸까?</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/using-apache-arrow/">Apache Arrow를 이용해서 데이터 빨리 읽기</a>
         </li>
       
     </ul>
@@ -1106,6 +1101,45 @@
         
         
 
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
 
 
   <section>
@@ -1114,6 +1148,12 @@
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/apache-arrow/">apache_arrow</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/fastapi/">fastapi</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/web/">web</a>
       
     </div>
   </section>
@@ -1174,6 +1214,17 @@
 
   
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 
 
@@ -1183,6 +1234,43 @@
 
 
 
+
+
+  <aside id="related-posts" aria-labelledby="related-label">
+    <h3 class="mb-4" id="related-label">관련된 글</h3>
+    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/why-fastapi/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1743688320"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/04/03
+</time>
+
+              <h4 class="pt-0 my-2">FastAPI를 왜 쓸까?</h4>
+              <div class="text-muted">
+                <p>Intro 이전 팀에서 Python Backend를 구성했고, 이때 FastAPI를 사용했습니다. 그래서 이번에는 FastAPI의 장점이 뭔지, 왜그런 장점이 있는지를 정리해보겠습니다.  웹 프레임워크(Web Framework)  왜 FastAPI를 선택해서 이용하는가? FastAPI는 기본적으로 python 웹 프레임워크다.  이름부터 Fast라고 ...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+    </nav>
+  </aside>
+  <!-- #related-posts -->
 
 
             
@@ -1194,15 +1282,23 @@
   
 
   
-    <div class="btn btn-outline-primary disabled" aria-label="이전 글">
-      <p>-</p>
-    </div>
+    <a
+      href="/posts/using-apache-arrow/"
+      class="btn btn-outline-primary"
+      aria-label="이전 글"
+    >
+      <p>Apache Arrow를 이용해서 데이터 빨리 읽기</p>
+    </a>
   
 
   
-    <div class="btn btn-outline-primary disabled" aria-label="다음 글">
-      <p>-</p>
-    </div>
+    <a
+      href="/posts/why-fastapi/"
+      class="btn btn-outline-primary"
+      aria-label="다음 글"
+    >
+      <p>FastAPI를 왜 쓸까?</p>
+    </a>
   
 </nav>
 
@@ -1277,6 +1373,45 @@
         
         
 
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
 
 
   <section>
@@ -1285,6 +1420,12 @@
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/apache-arrow/">apache_arrow</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/fastapi/">fastapi</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/web/">web</a>
       
     </div>
   </section>

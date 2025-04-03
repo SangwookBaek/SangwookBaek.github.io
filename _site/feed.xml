@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>oogie</title>
   <subtitle>Writing about AI &amp; Engineering, focusing on practical and impactful technologies.</subtitle>
-  <updated>2025-04-03T22:32:48+09:00</updated>
+  <updated>2025-04-03T23:04:16+09:00</updated>
   <author>
     <name>oogie</name>
     <uri>http://localhost:4000/</uri>
@@ -20,14 +20,62 @@
 
   
   <entry>
+    <title>FastAPI를 왜 쓸까?</title>
+    <link href="http://localhost:4000/posts/why-fastapi/" rel="alternate" type="text/html" title="FastAPI를 왜 쓸까?" />
+    <published>2025-04-03T22:52:00+09:00</published>
+  
+    <updated>2025-04-03T22:52:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/why-fastapi/</id>
+    <content type="text/html" src="http://localhost:4000/posts/why-fastapi/" />
+    <author>
+      <name>oogie</name>
+    </author>
+
+  
+    
+    <category term="Backend" />
+    
+  
+
+  <summary>Intro 이전 팀에서 Python Backend를 구성했고, 이때 FastAPI를 사용했습니다. 그래서 이번에는 FastAPI의 장점이 뭔지, 왜그런 장점이 있는지를 정리해보겠습니다.  웹 프레임워크(Web Framework)  왜 FastAPI를 선택해서 이용하는가? FastAPI는 기본적으로 python 웹 프레임워크다.  이름부터 Fast라고 붙여놓은 이 프레임워크는 직관적이게도 속도가 빠른 것이 장점이다.  속도가 빠른 이유는 무엇이고 속도가 빠르다는게 무엇과 비교했을 때 속도가 빠른 편이라는 것일까?  그리고 Django나 Flask 가 아니라 FastAPI를 쓰는 이유가 뭘까?  속도  속도는 2가지 측면에서 속도를 다룰 수 있는데       코드 작성의 편의성 : 이건 Pydantic 덕...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>웹 애플리케이션의 구성요소에 대해서</title>
+    <link href="http://localhost:4000/posts/whatiswebapplication/" rel="alternate" type="text/html" title="웹 애플리케이션의 구성요소에 대해서" />
+    <published>2025-04-03T22:52:00+09:00</published>
+  
+    <updated>2025-04-03T22:52:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/whatiswebapplication/</id>
+    <content type="text/html" src="http://localhost:4000/posts/whatiswebapplication/" />
+    <author>
+      <name>oogie</name>
+    </author>
+
+  
+    
+    <category term="Backend" />
+    
+  
+
+  <summary>Intro 많은 서비스들이 웹기반으로 제공되는데요 이러한 웹 애플리케이션이 어떻게 구성되는지, 각 용어들이 어떤 의미인지 정리해봅니다.  웹 프레임워크(Web Framework) 웹 개발을 하다보면 웹 프레임워크라는 단어를 마주할 수 밖에 없음 FastAPI 또한 웹프레임워크의 일종임  그런데 FastAPI를 공부하다보면 같이 계속 묶여서 나오는 것이 Uvicorn임 그런데 이건 웹 애플리 케이션 서버임  그러면 웹 서버는 뭐고 웹 프레임워크는 뭐고 둘은 어떤 관계일까?  웹 서버 (Web Server)  설명  클라이언트가 요청한 http 요청을 받아들이고 이것에 대한 응답을 반환하는 소프트웨어  기능     http 요청 처리 : http 형식으로 요청된 내용을 처리해줌   정적 파일 반환 : 이미...</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>Apache Arrow를 이용해서 데이터 빨리 읽기</title>
-    <link href="http://localhost:4000/posts/Blog-first-post/" rel="alternate" type="text/html" title="Apache Arrow를 이용해서 데이터 빨리 읽기" />
+    <link href="http://localhost:4000/posts/using-apache-arrow/" rel="alternate" type="text/html" title="Apache Arrow를 이용해서 데이터 빨리 읽기" />
     <published>2025-04-03T13:59:00+09:00</published>
   
-    <updated>2025-04-03T21:24:59+09:00</updated>
+    <updated>2025-04-03T13:59:00+09:00</updated>
   
-    <id>http://localhost:4000/posts/Blog-first-post/</id>
-    <content type="text/html" src="http://localhost:4000/posts/Blog-first-post/" />
+    <id>http://localhost:4000/posts/using-apache-arrow/</id>
+    <content type="text/html" src="http://localhost:4000/posts/using-apache-arrow/" />
     <author>
       <name>oogie</name>
     </author>
