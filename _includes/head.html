@@ -49,6 +49,8 @@
   {% endif %}
 
   {{ seo_tags }}
+  <meta name="description" content="{{ site.description }}">
+  <meta property="og:description" content="{{ site.description }}">
 
   <title>
     {%- unless page.layout == 'home' -%}
