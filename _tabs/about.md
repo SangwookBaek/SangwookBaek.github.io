@@ -1,3 +1,8 @@
+---
+# the default layout is 'page'
+icon: fas fa-info-circle
+order: 4
+---
 ### 🌟 Building User-First Services, Not Just Technology-Driven Ones
 
 I strive to develop services that deliver real value to users — not just by building what’s technically impressive, but by applying technology in ways that matter.
