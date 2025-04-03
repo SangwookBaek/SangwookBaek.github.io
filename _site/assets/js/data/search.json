@@ -5,7 +5,7 @@
     "categories": "Backend",
     "tags": "fastapi",
     "date": "2025-04-03 22:52:00 +0900",
-    "content": "Intro 이전 팀에서 Python Backend를 구성했고, 이때 FastAPI를 사용했습니다. 그래서 이번에는 FastAPI의 장점이 뭔지, 왜그런 장점이 있는지를 정리해보겠습니다.  웹 프레임워크(Web Framework)  왜 FastAPI를 선택해서 이용하는가? FastAPI는 기본적으로 python 웹 프레임워크다.  이름부터 Fast라고 ..."
+    "content": "Intro 이전 팀에서 Python Backend를 구성했고, 이때 FastAPI를 사용했습니다. 그래서 이번에는 FastAPI의 장점이 뭔지, 왜그런 장점이 있는지를 정리해보겠습니다.  FastAPI에 대해서  왜 FastAPI를 선택해서 이용하는가? FastAPI는 기본적으로 python 웹 프레임워크다.  이름부터 Fast라고 붙여놓은 이 프레임..."
   },
   {
     "title": "웹 애플리케이션의 구성요소에 대해서",

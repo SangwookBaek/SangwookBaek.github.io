@@ -3,18 +3,17 @@ title: FastAPI를 왜 쓸까?
 date: 2025-04-03 22:52:00 +0900
 author: oogie
 categories: [Backend]
-tags: [fastapi]     # TAG names should always be lowercase]
+tags: [web,fastapi]     # TAG names should always be lowercase]
+img_base: /assets/img/2025-04-03-why-fastapi
 ---
 
 ## Intro
 이전 팀에서 Python Backend를 구성했고, 이때 FastAPI를 사용했습니다.  
 그래서 이번에는 FastAPI의 장점이 뭔지, 왜그런 장점이 있는지를 정리해보겠습니다.
 
-## 웹 프레임워크(Web Framework)
+## FastAPI에 대해서
 
-
-왜 FastAPI를 선택해서 이용하는가? FastAPI는 기본적으로 python [웹 프레임워크](./2025-04-03-whatiswebapplication.md)다.
-
+왜 FastAPI를 선택해서 이용하는가? FastAPI는 기본적으로 python [웹 프레임워크](https://sangwookbaek.github.io/posts/whatiswebapplication/)다.
 
 
 이름부터 Fast라고 붙여놓은 이 프레임워크는 직관적이게도 속도가 빠른 것이 장점이다. 
@@ -27,17 +26,19 @@ tags: [fastapi]     # TAG names should always be lowercase]
 
 속도는 2가지 측면에서 속도를 다룰 수 있는데
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6a9bebc7-9ea3-4cec-8f6e-3be2eb9c1e88/f1a53d43-19ef-4633-9bbd-9495d2ec9b53/image.png)
+![다이어그램]({{ page.img_base }}/diagram.png)
 
 1. 코드 작성의 편의성 : 이건 Pydantic 덕분
 2. 실행 속도 : Node.js, GO랑 얼추 비슷한 속도라고 함 (ㄷㄷ..)
 왜 이 속도가 Node.js랑 GO에 견주는 속도가 나올 수 있는가? 이건 비동기 프로그래밍을 Starlette을 통해서 구현하는데, Starlette이 uvicorn을 쓰기 때문임
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6a9bebc7-9ea3-4cec-8f6e-3be2eb9c1e88/af88272a-6182-44e4-9a14-cbe51fe501f0/image.png)
+
+
+![그래프]({{ page.img_base }}/compare.png)
 
 ### FastAPI 와 uvicorn
 
-일단 uvicorn은 [WAS(Web application Server)](https://www.notion.so/1b54b8a2fb2181bdbb24f169e255c541?pvs=21)의 일종임
+일단 uvicorn은 [WAS(Web application Server)](https://sangwookbaek.github.io/posts/whatiswebapplication/)의 일종임
 
 그런데 이 중에서도 uvicorn은 비동기를 지원하는 WAS, ASGI(**Asyncronous Server Gateway Interface**)의 일종임. 이러한 uvicorn을 이용해서 web framework가 구동된다는 점에서 FastAPI가 강점을 가지게 됨.
 
@@ -81,7 +82,7 @@ tags: [fastapi]     # TAG names should always be lowercase]
 
 uvcorn은 libuv를 기반으로 cython으로 구현된 uvloop을 이용해서 이벤트루프를 구현함 
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6a9bebc7-9ea3-4cec-8f6e-3be2eb9c1e88/c6844fec-3eab-4617-b589-3819694bcf73/image.png)
+![uvicorn]({{ page.img_base }}/uvicorn_worker.png)
 
 ### python의 비동기성
 
@@ -108,14 +109,16 @@ uvcorn은 libuv를 기반으로 cython으로 구현된 uvloop을 이용해서 �
 근데 어쨋든 application 레벨에서 비동기 프레임워크를 지원해야하는데, FastAPI를 ASGI 인터페이스가 구현되어있는 starlette을 추상화해놓은 프레임워크이기 때문에 이게 가능하게 됨
 
 ## 최종 구조
-
-![https://breezymind.com/start-asgi-framework/](https://prod-files-secure.s3.us-west-2.amazonaws.com/6a9bebc7-9ea3-4cec-8f6e-3be2eb9c1e88/10b5dc18-4e49-4cbb-b49a-81249ba48c41/image.png)
-
-https://breezymind.com/start-asgi-framework/
-
-# Why FastAPI?
+![final_structure]({{ page.img_base }}/final_structure.png)
+# 그래서 FastAPI를 왜 쓰냐?
 
 정리해보면
 
 1. 기존 python 프레임워크와 다르게 비동기처리를 지원하는 웹 프레임워크가 큰 장점임 그래서 속도도 굉장히 빠름. uvicorn을 사용하는 node.js와 비슷한 속도를 가지고 있음
 2. 코드 작성 측면이 편리함. api 작성에 특화되어 있기도하고 pydantic + openapi 덕분
+
+
+`출처`  
+https://m.blog.naver.com/pjt3591oo/222772705407   
+https://breezymind.com/start-asgi-framework/
+

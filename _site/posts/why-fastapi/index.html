@@ -994,7 +994,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="1460 단어"
+  title="1467 단어"
 >
   <em>8 분</em>읽는 시간</span>
 
@@ -1032,9 +1032,9 @@
 <p>이전 팀에서 Python Backend를 구성했고, 이때 FastAPI를 사용했습니다.<br />
 그래서 이번에는 FastAPI의 장점이 뭔지, 왜그런 장점이 있는지를 정리해보겠습니다.</p>
 
-<h2 id="웹-프레임워크web-framework"><span class="me-2">웹 프레임워크(Web Framework)</span><a href="#웹-프레임워크web-framework" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="fastapi에-대해서"><span class="me-2">FastAPI에 대해서</span><a href="#fastapi에-대해서" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>왜 FastAPI를 선택해서 이용하는가? FastAPI는 기본적으로 python <a href="./2025-04-03-whatiswebapplication.md">웹 프레임워크</a>다.</p>
+<p>왜 FastAPI를 선택해서 이용하는가? FastAPI는 기본적으로 python <a href="https://sangwookbaek.github.io/posts/whatiswebapplication/">웹 프레임워크</a>다.</p>
 
 <p>이름부터 Fast라고 붙여놓은 이 프레임워크는 직관적이게도 속도가 빠른 것이 장점이다.</p>
 
@@ -1046,7 +1046,7 @@
 
 <p>속도는 2가지 측면에서 속도를 다룰 수 있는데</p>
 
-<p><a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/6a9bebc7-9ea3-4cec-8f6e-3be2eb9c1e88/f1a53d43-19ef-4633-9bbd-9495d2ec9b53/image.png" class="popup img-link  shimmer"><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/6a9bebc7-9ea3-4cec-8f6e-3be2eb9c1e88/f1a53d43-19ef-4633-9bbd-9495d2ec9b53/image.png" alt="image.png" loading="lazy"></a></p>
+<p><a href="/assets/img/2025-04-03-why-fastapi/diagram.png" class="popup img-link  shimmer"><img src="/assets/img/2025-04-03-why-fastapi/diagram.png" alt="다이어그램" loading="lazy"></a></p>
 
 <ol>
   <li>코드 작성의 편의성 : 이건 Pydantic 덕분</li>
@@ -1054,11 +1054,11 @@
 왜 이 속도가 Node.js랑 GO에 견주는 속도가 나올 수 있는가? 이건 비동기 프로그래밍을 Starlette을 통해서 구현하는데, Starlette이 uvicorn을 쓰기 때문임</li>
 </ol>
 
-<p><a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/6a9bebc7-9ea3-4cec-8f6e-3be2eb9c1e88/af88272a-6182-44e4-9a14-cbe51fe501f0/image.png" class="popup img-link  shimmer"><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/6a9bebc7-9ea3-4cec-8f6e-3be2eb9c1e88/af88272a-6182-44e4-9a14-cbe51fe501f0/image.png" alt="image.png" loading="lazy"></a></p>
+<p><a href="/assets/img/2025-04-03-why-fastapi/compare.png" class="popup img-link  shimmer"><img src="/assets/img/2025-04-03-why-fastapi/compare.png" alt="그래프" loading="lazy"></a></p>
 
 <h3 id="fastapi-와-uvicorn"><span class="me-2">FastAPI 와 uvicorn</span><a href="#fastapi-와-uvicorn" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>일단 uvicorn은 <a href="https://www.notion.so/1b54b8a2fb2181bdbb24f169e255c541?pvs=21">WAS(Web application Server)</a>의 일종임</p>
+<p>일단 uvicorn은 <a href="https://sangwookbaek.github.io/posts/whatiswebapplication/">WAS(Web application Server)</a>의 일종임</p>
 
 <p>그런데 이 중에서도 uvicorn은 비동기를 지원하는 WAS, ASGI(<strong>Asyncronous Server Gateway Interface</strong>)의 일종임. 이러한 uvicorn을 이용해서 web framework가 구동된다는 점에서 FastAPI가 강점을 가지게 됨.</p>
 
@@ -1106,7 +1106,7 @@
 
 <p>uvcorn은 libuv를 기반으로 cython으로 구현된 uvloop을 이용해서 이벤트루프를 구현함</p>
 
-<p><a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/6a9bebc7-9ea3-4cec-8f6e-3be2eb9c1e88/c6844fec-3eab-4617-b589-3819694bcf73/image.png" class="popup img-link  shimmer"><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/6a9bebc7-9ea3-4cec-8f6e-3be2eb9c1e88/c6844fec-3eab-4617-b589-3819694bcf73/image.png" alt="image.png" loading="lazy"></a></p>
+<p><a href="/assets/img/2025-04-03-why-fastapi/uvicorn_worker.png" class="popup img-link  shimmer"><img src="/assets/img/2025-04-03-why-fastapi/uvicorn_worker.png" alt="uvicorn" loading="lazy"></a></p>
 
 <h3 id="python의-비동기성"><span class="me-2">python의 비동기성</span><a href="#python의-비동기성" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
@@ -1133,12 +1133,8 @@
 <p>근데 어쨋든 application 레벨에서 비동기 프레임워크를 지원해야하는데, FastAPI를 ASGI 인터페이스가 구현되어있는 starlette을 추상화해놓은 프레임워크이기 때문에 이게 가능하게 됨</p>
 
 <h2 id="최종-구조"><span class="me-2">최종 구조</span><a href="#최종-구조" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p><a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/6a9bebc7-9ea3-4cec-8f6e-3be2eb9c1e88/10b5dc18-4e49-4cbb-b49a-81249ba48c41/image.png" class="popup img-link  shimmer"><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/6a9bebc7-9ea3-4cec-8f6e-3be2eb9c1e88/10b5dc18-4e49-4cbb-b49a-81249ba48c41/image.png" alt="https://breezymind.com/start-asgi-framework/" loading="lazy"></a></p>
-
-<p>https://breezymind.com/start-asgi-framework/</p>
-
-<h1 id="why-fastapi">Why FastAPI?</h1>
+<p><a href="/assets/img/2025-04-03-why-fastapi/final_structure.png" class="popup img-link  shimmer"><img src="/assets/img/2025-04-03-why-fastapi/final_structure.png" alt="final_structure" loading="lazy"></a></p>
+<h1 id="그래서-fastapi를-왜-쓰냐">그래서 FastAPI를 왜 쓰냐?</h1>
 
 <p>정리해보면</p>
 
@@ -1146,6 +1142,11 @@
   <li>기존 python 프레임워크와 다르게 비동기처리를 지원하는 웹 프레임워크가 큰 장점임 그래서 속도도 굉장히 빠름. uvicorn을 사용하는 node.js와 비슷한 속도를 가지고 있음</li>
   <li>코드 작성 측면이 편리함. api 작성에 특화되어 있기도하고 pydantic + openapi 덕분</li>
 </ol>
+
+<p><code class="language-plaintext highlighter-rouge">출처</code>
+https://m.blog.naver.com/pjt3591oo/222772705407 <br />
+https://breezymind.com/start-asgi-framework/</p>
+
 
   </div>
 

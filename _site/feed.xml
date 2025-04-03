@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>oogie</title>
   <subtitle>Writing about AI &amp; Engineering, focusing on practical and impactful technologies.</subtitle>
-  <updated>2025-04-03T23:04:16+09:00</updated>
+  <updated>2025-04-03T23:17:00+09:00</updated>
   <author>
     <name>oogie</name>
     <uri>http://localhost:4000/</uri>
@@ -38,7 +38,7 @@
     
   
 
-  <summary>Intro 이전 팀에서 Python Backend를 구성했고, 이때 FastAPI를 사용했습니다. 그래서 이번에는 FastAPI의 장점이 뭔지, 왜그런 장점이 있는지를 정리해보겠습니다.  웹 프레임워크(Web Framework)  왜 FastAPI를 선택해서 이용하는가? FastAPI는 기본적으로 python 웹 프레임워크다.  이름부터 Fast라고 붙여놓은 이 프레임워크는 직관적이게도 속도가 빠른 것이 장점이다.  속도가 빠른 이유는 무엇이고 속도가 빠르다는게 무엇과 비교했을 때 속도가 빠른 편이라는 것일까?  그리고 Django나 Flask 가 아니라 FastAPI를 쓰는 이유가 뭘까?  속도  속도는 2가지 측면에서 속도를 다룰 수 있는데       코드 작성의 편의성 : 이건 Pydantic 덕...</summary>
+  <summary>Intro 이전 팀에서 Python Backend를 구성했고, 이때 FastAPI를 사용했습니다. 그래서 이번에는 FastAPI의 장점이 뭔지, 왜그런 장점이 있는지를 정리해보겠습니다.  FastAPI에 대해서  왜 FastAPI를 선택해서 이용하는가? FastAPI는 기본적으로 python 웹 프레임워크다.  이름부터 Fast라고 붙여놓은 이 프레임워크는 직관적이게도 속도가 빠른 것이 장점이다.  속도가 빠른 이유는 무엇이고 속도가 빠르다는게 무엇과 비교했을 때 속도가 빠른 편이라는 것일까?  그리고 Django나 Flask 가 아니라 FastAPI를 쓰는 이유가 뭘까?  속도  속도는 2가지 측면에서 속도를 다룰 수 있는데       코드 작성의 편의성 : 이건 Pydantic 덕분   실행 속도 ...</summary>
 
   </entry>
 
