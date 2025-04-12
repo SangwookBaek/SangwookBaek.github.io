@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>oogie</title>
   <subtitle>Writing about AI &amp; Engineering, focusing on practical and impactful technologies.</subtitle>
-  <updated>2025-04-03T23:17:00+09:00</updated>
+  <updated>2025-04-13T01:26:22+09:00</updated>
   <author>
     <name>oogie</name>
     <uri>http://localhost:4000/</uri>
@@ -20,11 +20,35 @@
 
   
   <entry>
+    <title>프로그래밍 언어 구동 방식 - 컴파일러,인터프리터, 하이브리드,JIT</title>
+    <link href="http://localhost:4000/posts/compiler-interpreter-hybrid-jit/" rel="alternate" type="text/html" title="프로그래밍 언어 구동 방식 - 컴파일러,인터프리터, 하이브리드,JIT" />
+    <published>2025-04-13T01:22:00+09:00</published>
+  
+    <updated>2025-04-13T01:22:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/compiler-interpreter-hybrid-jit/</id>
+    <content type="text/html" src="http://localhost:4000/posts/compiler-interpreter-hybrid-jit/" />
+    <author>
+      <name>oogie</name>
+    </author>
+
+  
+    
+    <category term="Compter_System" />
+    
+  
+
+  <summary>Intro  하드웨어는 개발할 때 사용하는 high level language(e.g. C, Python, Java, JavaScript)를 직접적으로 이해하지 못한다. 하드웨어가 직접 이해하고 실행할 수 있는 언어는 기계어 밖에 없다.  그러면 어떤 방식으로 우리가 고안한 프로그램을 실행시킬 수 있을까?  이와 관련된 4가지 방식 컴파일러, 인터프리터, 하이브리드, JIT에 대해서 정리해본다.  컴파일러(Compiler)  하드웨어는 기계어만 실행할 수 있고, 우리가 쓴 언어는 high level language라는 것이 문제 상황이다.  이럴 때 생각할 수 있는 가장 직관적이고 효과적인 방법은 high level language를 기계어로 변환하는 것이다.  결국 모든 high level langu...</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>FastAPI를 왜 쓸까?</title>
     <link href="http://localhost:4000/posts/why-fastapi/" rel="alternate" type="text/html" title="FastAPI를 왜 쓸까?" />
     <published>2025-04-03T22:52:00+09:00</published>
   
-    <updated>2025-04-03T22:52:00+09:00</updated>
+    <updated>2025-04-03T23:17:48+09:00</updated>
   
     <id>http://localhost:4000/posts/why-fastapi/</id>
     <content type="text/html" src="http://localhost:4000/posts/why-fastapi/" />
@@ -69,13 +93,13 @@
   
   <entry>
     <title>Apache Arrow를 이용해서 데이터 빨리 읽기</title>
-    <link href="http://localhost:4000/posts/using-apache-arrow/" rel="alternate" type="text/html" title="Apache Arrow를 이용해서 데이터 빨리 읽기" />
+    <link href="http://localhost:4000/posts/using-apache-arrow-copy/" rel="alternate" type="text/html" title="Apache Arrow를 이용해서 데이터 빨리 읽기" />
     <published>2025-04-03T13:59:00+09:00</published>
   
     <updated>2025-04-03T13:59:00+09:00</updated>
   
-    <id>http://localhost:4000/posts/using-apache-arrow/</id>
-    <content type="text/html" src="http://localhost:4000/posts/using-apache-arrow/" />
+    <id>http://localhost:4000/posts/using-apache-arrow-copy/</id>
+    <content type="text/html" src="http://localhost:4000/posts/using-apache-arrow-copy/" />
     <author>
       <name>oogie</name>
     </author>
