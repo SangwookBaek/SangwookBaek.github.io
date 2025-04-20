@@ -455,7 +455,7 @@ Flat 형태는 기본적으로 Vector를 쭉 연결한 Array로 저장합니다.
 ---
 
 <aside>
-💡
+
 
 ***전체 흐름 요약***
 
@@ -480,7 +480,7 @@ IndexFlatCodes::search(n, x, k, distances, labels, params)
 ---
 
 <aside>
-💡
+
 
 ***구성 요소별 설명***
 
@@ -511,7 +511,7 @@ IndexFlatCodes::search(n, x, k, distances, labels, params)
 ---
 
 <aside>
-💡
+
 
 ***Result Handler의 역할***
 
