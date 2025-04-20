@@ -9,7 +9,7 @@ img_base: /assets/img/2025-04-20-vectordb-faiss
 
 # Intro
 
-PPicker 프로젝트에서 의류 아이템을 retrieval 하는 서비스(Vibe Searching)를 만들기 위해서  Vector DB를 적용하고 있다. 사실 VectorDB의 목적, 원리, 구현 모두 이번에 처음 알아봤고 그 내용을 정리하려고 한다.
+PPicker 프로젝트에서 의류 아이템을 retrieval 하는 서비스(Vibe Searching)를 만들기 위해서  Vector DB를 적용하고 있다. 사실 VectorDB의 목적, 원리, 구현 모두 이번에 처음 알아봤고 그 내용을 정리하려고 합니다.
 
 ![etl_struct]({{ page.img_base }}/etl_struct.png)
 
