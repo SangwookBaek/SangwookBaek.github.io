@@ -5,6 +5,7 @@ author: oogie
 categories: [review,article]
 tags: [RAG,GraphRAG]     # TAG names should always be lowercase]
 img_base: /assets/img/2025-05-28-review-lightrag
+use_math: true
 ---
 # Introduction
 
@@ -38,6 +39,7 @@ RAG가 외부 지식 시스템을 통합합으로서 LLM의 단점을 극복하�
 - low level : 특정 entity와 relation에 대한 정확한 정보에 집중
 - high level : 더 넓은 토픽과 주제를 통함함
 
+---
 # Retrieval - Augmented Generation
 
 RAG에 대해서 잘 모르니 정리해보자 
@@ -82,6 +84,8 @@ LightRAG에서 RAG 구조를 개선하는 부분은 3가지임
 - Comprehensive Information Retrieval : global information을 retrieve할 수 있어야함
 - Efficient and Low Cost Retrieval : $\hat D$를 통해 빠르고 효율적인 retrieve를 할 수있어야함
 - Fast Adaptation to Data Changes : 새로운 데이터가 추가 되었을 때 기존 data structure에 빠르고 잘 조정이 되어야함
+
+---
 
 # LightRAG Architecture
 
