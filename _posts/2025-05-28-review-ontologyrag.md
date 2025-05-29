@@ -5,7 +5,7 @@ author: oogie
 categories: [review,project]
 tags: [RAG,GraphRAG]     # TAG names should always be lowercase]
 img_base: /assets/img/2025-05-28-review-ontologyrag
-use_math: true
+use_math: false
 ---
 
 
