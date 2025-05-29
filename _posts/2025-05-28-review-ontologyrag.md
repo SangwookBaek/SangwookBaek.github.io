@@ -5,7 +5,7 @@ author: oogie
 categories: [review,project]
 tags: [RAG,GraphRAG]     # TAG names should always be lowercase]
 img_base: /assets/img/2025-05-28-review-ontologyrag
-use_math: false
+use_math: true
 ---
 
 
@@ -36,7 +36,7 @@ use_math: false
 
 내부적으로 4가지 단계로 쪼개고 3개의 팀을 나눠서 진행했다.
 
-![image.png]({{ page.img_base }}/1.png)
+![image.png](attachment:825b7d80-20a8-4d88-9c6b-7fbd1e22e0ae:image.png)
 
 ### 데이터 전처리
 
@@ -82,7 +82,7 @@ GraphRAG 시스템을 실제 서비스에 도입한다고 가정했을 때, 가�
 
 https://ustr.gov/about-us/policy-offices/press-office/press-releases
 
-![image.png]({{ page.img_base }}/2.png)
+![image.png](attachment:70a33e45-e04a-49ba-94f5-d842cb861d84:image.png)
 
 미국 무역대표부(USTR)의 보도자료를 Lexical Graph 데이터로 선정한 이유는 다음과 같다.
 
@@ -111,11 +111,11 @@ Temporal data 는 시간대별로 Product(Node)의 주문량, 배송량, 생산�
 - **FACTORYISSUE**: 공장에서 출고된 전체 제품 수량 및 무게로, 유통업체로 배송되거나 창고에 저장되는 물량을 나타낸다.
 - **SALESORDER**: 유통업체가 요청한 제품 수량을 나타내며, 이는 제품의 총 수요를 반영한다.
 
-***생성된 도메인 그래프***
+***<생성된 도메인 그래프>***
 
 노란색 : product, 회색 : plant
 
-![image.png]({{ page.img_base }}/3.png)
+![image.png](attachment:e3ee0f83-c369-427f-a498-7f724ad1a402:image.png)
 
 # 지식 그래프 구축
 
@@ -123,55 +123,51 @@ Temporal data 는 시간대별로 Product(Node)의 주문량, 배송량, 생산�
 
 LightRAG의 프롬프트는 기본적으로 다음과 같이 생겼다.
 
-<details>
-<summary>prompt Template</summary>
-
-```python
-ROMPTS["entity_extraction"] = """---Goal---
-Given a text document that is potentially relevant to this activity and a list of entity types, identify all entities of those types from the text and all relationships among the identified entities.
-Use {language} as output language.
-
----Steps---
-1. Identify all entities. For each identified entity, extract the following information:
-- entity_name: Name of the entity, use same language as input text. If English, capitalized the name.
-- entity_type: One of the following types: [{entity_types}]
-- entity_description: Comprehensive description of the entity's attributes and activities
-Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
-
-2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
-For each pair of related entities, extract the following information:
-- source_entity: name of the source entity, as identified in step 1
-- target_entity: name of the target entity, as identified in step 1
-- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
-- relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity
-- relationship_keywords: one or more high-level key words that summarize the overarching nature of the relationship, focusing on concepts or themes rather than specific details
-Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_keywords>{tuple_delimiter}<relationship_strength>)
-
-3. Identify high-level key words that summarize the main concepts, themes, or topics of the entire text. These should capture the overarching ideas present in the document.
-Format the content-level key words as ("content_keywords"{tuple_delimiter}<high_level_keywords>)
-
-4. Return output in {language} as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
-
-5. When finished, output {completion_delimiter}
-
-######################
----Examples---
-######################
-{examples}
-
-#############################
----Real Data---
-######################
-Entity_types: [{entity_types}]
-Text:
-{input_text}
-######################
-Output:"""
-
-```
-
-</details>
-
+- prompt
+    
+    ```python
+    ROMPTS["entity_extraction"] = """---Goal---
+    Given a text document that is potentially relevant to this activity and a list of entity types, identify all entities of those types from the text and all relationships among the identified entities.
+    Use {language} as output language.
+    
+    ---Steps---
+    1. Identify all entities. For each identified entity, extract the following information:
+    - entity_name: Name of the entity, use same language as input text. If English, capitalized the name.
+    - entity_type: One of the following types: [{entity_types}]
+    - entity_description: Comprehensive description of the entity's attributes and activities
+    Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
+    
+    2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
+    For each pair of related entities, extract the following information:
+    - source_entity: name of the source entity, as identified in step 1
+    - target_entity: name of the target entity, as identified in step 1
+    - relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+    - relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity
+    - relationship_keywords: one or more high-level key words that summarize the overarching nature of the relationship, focusing on concepts or themes rather than specific details
+    Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_keywords>{tuple_delimiter}<relationship_strength>)
+    
+    3. Identify high-level key words that summarize the main concepts, themes, or topics of the entire text. These should capture the overarching ideas present in the document.
+    Format the content-level key words as ("content_keywords"{tuple_delimiter}<high_level_keywords>)
+    
+    4. Return output in {language} as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+    
+    5. When finished, output {completion_delimiter}
+    
+    ######################
+    ---Examples---
+    ######################
+    {examples}
+    
+    #############################
+    ---Real Data---
+    ######################
+    Entity_types: [{entity_types}]
+    Text:
+    {input_text}
+    ######################
+    Output:"""
+    ```
+    
 
 LightRAG 논문(https://sangwookbaek.github.io/posts/review-lightrag/)과 실제 프롬프트 구조를 참고하면, 관계 유형(relation type)은 LLM을 통해 생성하고, 명확하게 지정된 엔터티를 입력으로 넘겨주는 방식이 필요하다는 점을 확인할 수 있다. 따라서 본 프로젝트에서는 지식 추출 이전에 먼저 Entity Set을 정의하는 작업이 선행되었다.
 
@@ -183,12 +179,9 @@ Entity 정의 과정에서는 World Bank의 *Supply Chain Management Guidance* �
 
 LightRAG는 구조화된 그래프 검색과 비구조화된 벡터 검색을 병행하므로, 이 두 형태의 지식 저장 방식은 모두 필수적이다.
 
-
-<details>
-<summary>entity types</summary>
-
-
-```yaml
+- entity types
+    
+    ```yaml
     entity_types:
         - AGREEMENT
         - TRADE_POLICY
@@ -220,23 +213,17 @@ LightRAG는 구조화된 그래프 검색과 비구조화된 벡터 검색을 �
       TRADE_BARRIER: Measures that restrict trade (e.g., GM-maize import ban, tariffs, NTBs).
       DISPUTE_RESOLUTION: Formal procedures for resolving disputes within an agreement (e.g., USMCA Chapter 31 process).
       GOVERNMENT: Specific governments/administrations (e.g., Biden Administration, Trudeau Government).
-```
-
-</details>
-
-
     
+    ```
     
 
 ## neo4j 적재
 
 prompt를 통해 생성되는 결과는 다음과 같다.
 
-
-<details>
-<summary>예시 결과</summary>
-
-```python
+- 예시 결과
+    
+    ```python
      """
         ("entity"<|>United States<|>Actor<|>The United States is a country that issues proclamations and regulations regarding trade and international relations, including actions under the African Growth and Opportunity Act (AGOA).)##
         ("entity"<|>Islamic Republic of Mauritania<|>Actor<|>Mauritania is a country in sub-Saharan Africa that has been designated as a beneficiary country under the AGOA, subject to eligibility criteria set by the Trade Act.)##
@@ -258,21 +245,16 @@ prompt를 통해 생성되는 결과는 다음과 같다.
         ("relationship"<|>Africa Investment Incentive Act of 2006<|>African Growth and Opportunity Act<|>The Africa Investment Incentive Act of 2006 amended provisions of the AGOA, impacting trade rules for beneficiary countries.<|>legislative amendment, trade policy<|>8)##
         ("content_keywords"<|>trade, regulation, eligibility, AGOA, Mauritania, proclamation, compliance, beneficiary<|>trade, regulation, eligibility, AGOA, Mauritania)##("content_keywords"<|>high_level_keywords<|>trade policy, international relations, compliance, legislative framework)##<|COMPLETE|>
         """
-```
-
-</details>
-
-
-
+    ```
+    
 
 이를 Neo4j에 적재하기 위해서 일단 node의 이름을 id로 잡는다. 그리고 나머지 항목은 Property로 둔다.
 
 그리고 relation으로 정의된 Node들을 연결하는 relation을 삽입한다.
 
-<details>
-<summary>적재 코드</summary>
+- 적재 코드
     
-```python
+    ```python
     def to_kg_in_chunk(output, gid):
     """
     output을 neo4j에서 필요로하는 kg형태로 정제
@@ -378,9 +360,7 @@ prompt를 통해 생성되는 결과는 다음과 같다.
             keywords=keywords,
             strength=strength,
         )
-```
-
-</details>
+    ```
     
 
 ### 그래프 구조
@@ -394,7 +374,7 @@ prompt를 통해 생성되는 결과는 다음과 같다.
 
 이러한 구조는 각 보도자료의 문맥을 유지한 채, 문서 내외의 개념들을 다층적으로 연결할 수 있도록 설계되어 있다.
 
-![image.png]({{ page.img_base }}/4.png)
+![image.png](attachment:fa0fae6c-c29d-490c-bf24-fbdeaf258b6a:image.png)
 
 ## 버저닝 및 협업 방식 : hydra + notion
 
@@ -405,12 +385,10 @@ prompt를 통해 생성되는 결과는 다음과 같다.
 - notion table
     
     [제목 없음](https://www.notion.so/2024b8a2fb2180adb5dbdf9647558be8?pvs=21)
-
-
-<details>
-<summary>notion sdk 코드 → hydra config를 notion으로 업로드, notion의 table에서 yaml파일로 저장</summary>
-
-```python
+    
+- notion sdk 코드 → hydra config를 notion으로 업로드, notion의 table에서 yaml파일로 저장
+    
+    ```python
     def config2notion(cfg):
         load_dotenv()
         # ─── 1) 설정 ───
@@ -467,10 +445,8 @@ prompt를 통해 생성되는 결과는 다음과 같다.
                 model_cfg = yaml.safe_load(f)
             save_to_yaml_file(prompt_cfg, model_cfg, cfg_path)
             
- ```
-
-</details>    
-
+    ```
+    
 
 ### 2 & 3팀과 협업
 
@@ -481,11 +457,9 @@ prompt를 통해 생성되는 결과는 다음과 같다.
 
 이 부분은 내가 진행한 내용이 아니라 멘토님께서 진행해주신 내용이다.
 
-
-<details>
-<summary>docker-compose.yml</summary>
+- docker-compose.yml
     
-```yaml
+    ```yaml
     services:
       lightrag:
         container_name: lightrag
@@ -565,14 +539,11 @@ prompt를 통해 생성되는 결과는 다음과 같다.
       lightrag_net:
         driver: bridge
     
-```
-
-</details>
-
-<details>
-<summary>Dockerfile</summary>    
-
-```docker
+    ```
+    
+- Dockerfile
+    
+    ```docker
     # Build stage
     FROM python:3.11-slim AS builder
     
@@ -625,9 +596,7 @@ prompt를 통해 생성되는 결과는 다음과 같다.
     # Set entrypoint
     # ENTRYPOINT ["python", "-m", "lightrag.api.lightrag_server"]
     CMD ["uvicorn", "monitoring.query_api:app", "--host", "0.0.0.0", "--port", "2727"]
-```
-
-</details>
+    ```
     
 
 ### 서비스 레이어
