@@ -94,7 +94,7 @@ https://ustr.gov/about-us/policy-offices/press-office/press-releases
 
 `Domain Graph`
 
-[https://oogie.notion.site/Supply-Graph-1e84b8a2fb218059bb03e0819d59af6b?pvs=4](https://www.notion.so/Supply-Graph-1e84b8a2fb218059bb03e0819d59af6b?pvs=21)
+[https://oogie.notion.site/Supply-Graph-1e84b8a2fb218059bb03e0819d59af6b?pvs=4](https://oogie.notion.site/Supply-Graph-1e84b8a2fb218059bb03e0819d59af6b?pvs=4)
 
 도메인 그래프는 Nodes, Edges , Temporal 데이터 3개 섹션으로 이루어져있음
 Nodes는 product의 feature로 id, index(integer id) group, subgroup, plant, storage로 구성됨
@@ -384,7 +384,8 @@ prompt를 통해 생성되는 결과는 다음과 같다.
 
 - notion table
     
-    [제목 없음](https://www.notion.so/2024b8a2fb2180adb5dbdf9647558be8?pvs=21)
+    ![image.png]({{ page.img_base }}/5.png)
+
     
 - notion sdk 코드 → hydra config를 notion으로 업로드, notion의 table에서 yaml파일로 저장
     
