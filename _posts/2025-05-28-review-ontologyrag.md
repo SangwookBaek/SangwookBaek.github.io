@@ -111,7 +111,7 @@ Temporal data 는 시간대별로 Product(Node)의 주문량, 배송량, 생산�
 - **FACTORYISSUE**: 공장에서 출고된 전체 제품 수량 및 무게로, 유통업체로 배송되거나 창고에 저장되는 물량을 나타낸다.
 - **SALESORDER**: 유통업체가 요청한 제품 수량을 나타내며, 이는 제품의 총 수요를 반영한다.
 
-***<생성된 도메인 그래프>***
+***생성된 도메인 그래프***
 
 노란색 : product, 회색 : plant
 
@@ -169,6 +169,7 @@ Text:
 Output:"""
 
 ```
+
 </details>
 
 
@@ -220,6 +221,7 @@ LightRAG는 구조화된 그래프 검색과 비구조화된 벡터 검색을 �
       DISPUTE_RESOLUTION: Formal procedures for resolving disputes within an agreement (e.g., USMCA Chapter 31 process).
       GOVERNMENT: Specific governments/administrations (e.g., Biden Administration, Trudeau Government).
 ```
+
 </details>
 
 
@@ -377,6 +379,7 @@ prompt를 통해 생성되는 결과는 다음과 같다.
             strength=strength,
         )
 ```
+
 </details>
     
 
@@ -623,6 +626,7 @@ prompt를 통해 생성되는 결과는 다음과 같다.
     # ENTRYPOINT ["python", "-m", "lightrag.api.lightrag_server"]
     CMD ["uvicorn", "monitoring.query_api:app", "--host", "0.0.0.0", "--port", "2727"]
 ```
+
 </details>
     
 
