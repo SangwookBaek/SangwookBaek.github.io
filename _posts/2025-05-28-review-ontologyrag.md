@@ -36,7 +36,7 @@ use_math: true
 
 내부적으로 4가지 단계로 쪼개고 3개의 팀을 나눠서 진행했다.
 
-![image.png](attachment:825b7d80-20a8-4d88-9c6b-7fbd1e22e0ae:image.png)
+![image.png]({{ page.img_base }}/1.png)
 
 ### 데이터 전처리
 
@@ -82,7 +82,7 @@ GraphRAG 시스템을 실제 서비스에 도입한다고 가정했을 때, 가�
 
 https://ustr.gov/about-us/policy-offices/press-office/press-releases
 
-![image.png](attachment:70a33e45-e04a-49ba-94f5-d842cb861d84:image.png)
+![image.png]({{ page.img_base }}/2.png)
 
 미국 무역대표부(USTR)의 보도자료를 Lexical Graph 데이터로 선정한 이유는 다음과 같다.
 
@@ -115,7 +115,7 @@ Temporal data 는 시간대별로 Product(Node)의 주문량, 배송량, 생산�
 
 노란색 : product, 회색 : plant
 
-![image.png](attachment:e3ee0f83-c369-427f-a498-7f724ad1a402:image.png)
+![image.png]({{ page.img_base }}/3.png)
 
 # 지식 그래프 구축
 
@@ -374,7 +374,7 @@ prompt를 통해 생성되는 결과는 다음과 같다.
 
 이러한 구조는 각 보도자료의 문맥을 유지한 채, 문서 내외의 개념들을 다층적으로 연결할 수 있도록 설계되어 있다.
 
-![image.png](attachment:fa0fae6c-c29d-490c-bf24-fbdeaf258b6a:image.png)
+![image.png]({{ page.img_base }}/4.png)
 
 ## 버저닝 및 협업 방식 : hydra + notion
 
