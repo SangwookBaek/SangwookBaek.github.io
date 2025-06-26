@@ -8,7 +8,7 @@ use_math: false
 ---
 
 
-# Intro
+## Intro
 
 python으로 백엔드 코드를 짜다보면 점점 많이 사용하게 문법이 `async,await`이다.
 
@@ -16,7 +16,7 @@ python으로 백엔드 코드를 짜다보면 점점 많이 사용하게 문법�
 
 비동기 프로그래밍을 구현하는 방법은 thread, multiprocess등 다양할 수 있다. 하지만 python의 async함수는 코루틴을 활용한다. 이 개념이 좀 복잡하고 중요하다보니 한번 정리해보고자 한다.
 
-# 왜 써야하나?
+## 왜 써야하나?
 
 목적 없는 기술은 의미가 없기 때문에, 비동기 프로그래밍을 사용하는 이유를 먼저 명확히 정리하고자 한다.
 
@@ -30,7 +30,7 @@ python으로 백엔드 코드를 짜다보면 점점 많이 사용하게 문법�
 
 예를 들어 데이터베이스(DB)에서 데이터를 읽는 작업은 파일 I/O에 해당하고, API 호출이나 응답을 기다리는 작업은 네트워크 I/O에 해당하므로, 실제 프로덕션 환경에서 Python으로 백엔드를 작성하다 보면 자연스럽게 비동기 프로그래밍을 자주 활용하게 된다.
 
-# Multiprocess & Thread
+## Multiprocess & Thread
 
 비동기 처리를 위한 기본적인 방법으로 `멀티프로세스(multiprocessing)`와 `멀티스레드(multithreading)`가 자주 언급된다.
 
@@ -43,7 +43,7 @@ Python에서는 여러 스레드를 만들어도 결국 한 번에 하나의 스
 
 결과적으로 I/O 처리를 위한 경량 동시성 구조가 필요했고, Python에서는 이 역할을 **코루틴(coroutine)**으로 구현한다.
 
-# Coroutine & event handler
+## Coroutine & event handler
 
 Python에서 `async def`로 정의된 함수는 코루틴이다. 이 코루틴은 실제 함수처럼 바로 실행되는 것이 아니라, **“실행 계획서” 같은 객체**를 반환한다. 이 코루틴을 실제로 실행하려면 `await` 키워드를 통해 명시적으로 **이벤트 루프에 등록**해야 한다.
 
@@ -51,7 +51,7 @@ Python에서 `async def`로 정의된 함수는 코루틴이다. 이 코루틴�
 
 코루틴은 컨텍스트 스위칭 비용이 거의 없고, 수천 개의 코루틴도 문제없이 스케줄링이 가능하다. 이런 특성 때문에 I/O 중심의 백엔드 작업에서는 멀티스레드보다 코루틴이 훨씬 적합하다.
 
-# GIL(Global Interpreter Lock)
+## GIL(Global Interpreter Lock)
 
 Python(CPython)의 GIL은 여러 스레드가 동시에 Python 바이트코드를 실행하지 못하게 막는 전역 락이다.
 
@@ -65,11 +65,11 @@ GIL이 존재하는 이유는 Python의 메모리 관리 방식 때문이다. Py
 
 다만 스레드는 생성과 컨텍스트 스위칭 비용이 크고 관리가 까다롭기 때문에, Python에서는 **코루틴 + 이벤트 루프 기반의 async 모델이 더 효율적으로 IO intensive job을 처리할 수 있다.**
 
-# FastAPI vs Django
+## FastAPI vs Django
 
 이제 백엔드 프레임워크에 비동기 개념을 어떻게 적용하는지를 살펴보자.
 
-## FastAPI가 Django보다 빠른 이유는?
+### FastAPI가 Django보다 빠른 이유는?
 
 이미 이전에 FastAPI와 Django를 비교한 내용이 있다. 이를 다시 정리해본다.
 
@@ -103,7 +103,7 @@ ASGI(Asynchronous Server Gateway Interface) 표준 위에서 동작한다.
 > **비동기 이벤트 루프를 네이티브로 활용할 수 있도록 프레임워크 구조가 설계되어 있기 때문**이다.
 > 
 
-## FastAPI의 비동기 vs 기본 Python의 비동기
+### FastAPI의 비동기 vs 기본 Python의 비동기
 
 Python에서도 기본적으로 `async/await`, `asyncio`를 통해 비동기 처리를 구현할 수 있다.
 
@@ -123,7 +123,7 @@ Python에서도 기본적으로 `async/await`, `asyncio`를 통해 비동기 처
 
 반면 FastAPI는 이 복잡함을 추상화하면서도 `async/await`의 효율은 그대로 유지한다.
 
-# Outro
+## Outro
 
 비동기 프로그래밍은 백엔드 코드의 핵심적인 내용이고,Python으로 백엔드 코드를 작성하는 입장에서는
 
