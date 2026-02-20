@@ -5,6 +5,7 @@ author: oogie
 categories: [infra,linux]
 tags: [ssh,port-forwarding,network]     # TAG names should always be lowercase]
 use_math: false
+img_base: /assets/img/2026-02-15-ssh-external-access-setup
 ---
 
 ## TL;DR
@@ -74,6 +75,8 @@ SK브로드밴드 설치 구성은 보통 이렇다:
 ```
 
 GNT2400 본체는 **현관 신발장 안쪽 멀티미디어 박스** 같은 곳에 숨어있는 경우가 많다.
+
+![GNT2400 모뎀]({{ page.img_base }}/modem.jpeg){: width="400" }
 
 ### GNT2400 로그인 정보
 
