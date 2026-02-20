@@ -8,6 +8,12 @@ img_base: /assets/img/2025-05-28-review-ontologyrag
 use_math: true
 ---
 
+## TL;DR
+
+OSSCA에서 Ontology 기반 GraphRAG 프로젝트에 참여했다. USTR 보도자료에서 Lexical Graph를 구축하고, 공급망 데이터 기반의 Domain Graph와 결합하여 정책 변화에 따른 리스크 영향도를 분석할 수 있는 RAG 시스템을 구축했다. LightRAG를 베이스로 온톨로지 기반 도메인 그래프 통합, 검색 파이프라인 설계, 평가 체계 구축 과정을 정리했다.
+
+---
+
 
 # Intro
 

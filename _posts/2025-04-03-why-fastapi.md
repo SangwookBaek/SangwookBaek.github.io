@@ -7,6 +7,12 @@ tags: [web,fastapi]     # TAG names should always be lowercase]
 img_base: /assets/img/2025-04-03-why-fastapi
 ---
 
+## TL;DR
+
+FastAPI가 빠른 이유는 ASGI 기반의 uvicorn 위에서 비동기 처리를 지원하기 때문이다. Django는 풀스택이지만 비동기 지원이 제한적이고, FastAPI는 API 개발에 특화되어 Node.js/Go에 견줄 만한 속도를 낸다. Gunicorn + uvicorn worker 구조와 Python GIL의 관계까지 정리했다.
+
+---
+
 ## Intro
 이전 팀에서 Python Backend를 구성했고, 이때 FastAPI를 사용했습니다.  
 그래서 이번에는 FastAPI의 장점이 뭔지, 왜그런 장점이 있는지를 정리해보겠습니다.

@@ -6,6 +6,12 @@ categories: [Data_engineering]
 tags: [apache_arrow]     # TAG names should always be lowercase]
 ---
 
+## TL;DR
+
+MovieLens 데이터 로딩 속도 개선을 위해 pandas, Dask, Apache Arrow를 비교했다. Dask는 분산처리 오버헤드로 오히려 pandas보다 느렸고, Apache Arrow는 columnar 메모리 구조와 zero-copy 덕분에 pandas 대비 약 10배 빠른 속도(23초 → 2.3초)를 기록했다.
+
+---
+
 ## Intro
 MovieLens 데이터를 활용한 추천 시스템 예제 코드를 재구현하던 중, 데이터를 읽어오는 속도가 너무 느려 답답함을 느꼈습니다.
 기존 코드가 `pandas` 기반으로 작성되어 있었기 때문에, 데이터 로딩 속도 개선을 위해 해당 부분을 가장 먼저 수정해야겠다고 판단하였습니다.

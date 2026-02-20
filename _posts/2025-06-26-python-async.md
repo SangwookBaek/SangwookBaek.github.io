@@ -7,6 +7,12 @@ tags: [async]     # TAG names should always be lowercase]
 use_math: false
 ---
 
+## TL;DR
+
+Python의 async/await는 코루틴 기반의 비동기 프로그래밍 방식이다. I/O-intensive한 작업에서 CPU 유휴 시간을 활용하기 위해 사용하며, 이벤트 루프가 코루틴 간 실행을 전환하는 구조로 동작한다. 스레드/프로세스와의 차이점, 코루틴의 동작 원리, 그리고 실무에서의 활용 패턴을 정리했다.
+
+---
+
 
 ## Intro
 

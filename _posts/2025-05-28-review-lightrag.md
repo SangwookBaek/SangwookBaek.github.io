@@ -7,6 +7,13 @@ tags: [RAG,GraphRAG]     # TAG names should always be lowercase]
 img_base: /assets/img/2025-05-28-review-lightrag
 use_math: true
 ---
+
+## TL;DR
+
+LightRAG는 기존 RAG의 flat한 벡터 검색 한계를 knowledge graph 구조로 보완한 프레임워크다. entity/relation 기반의 dual-level retrieval(low-level: 특정 엔티티, high-level: 넓은 토픽)로 복잡한 쿼리에 대응하며, GraphRAG 대비 retrieval 비용을 대폭 절감(61만 토큰 → 100 토큰 미만)하면서도 생성 품질에서 우위를 보였다.
+
+---
+
 # Introduction
 
 RAG가 외부 지식 시스템을 통합합으로서 LLM의 단점을 극복하여 정확도와 contextually relavant한 응답을 뱉을 수 있게 됨

@@ -6,6 +6,12 @@ categories: [Backend]
 tags: [web]     # TAG names should always be lowercase]
 ---
 
+## TL;DR
+
+웹 애플리케이션을 구성하는 핵심 요소인 웹 서버(Nginx), WAS(Gunicorn/Uvicorn), 웹 프레임워크(FastAPI/Django)의 역할과 관계를 정리했다. 특히 CGI → WSGI → ASGI로 이어지는 인터페이스 발전 과정을 통해 왜 현대 WAS가 비동기를 지원하게 되었는지를 다룬다.
+
+---
+
 ## Intro
 많은 서비스들이 웹기반으로 제공되는데요 이러한 웹 애플리케이션이 어떻게 구성되는지, 각 용어들이 어떤 의미인지 정리해봅니다.
 

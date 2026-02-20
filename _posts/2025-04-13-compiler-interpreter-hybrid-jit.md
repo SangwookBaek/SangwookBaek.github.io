@@ -5,6 +5,13 @@ author: oogie
 categories: [Compter_System]
 tags: [computer_system]     # TAG names should always be lowercase]
 ---
+
+## TL;DR
+
+프로그래밍 언어의 4가지 실행 방식을 정리했다. 컴파일러(C/C++)는 기계어로 직접 변환하여 빠르고, 인터프리터(Python)는 C로 구현된 소프트웨어가 코드를 한 줄씩 실행한다. 하이브리드(현대 Python/Java)는 바이트코드로 컴파일 후 인터프리터가 실행하며, JIT(PyPy/V8)는 반복 실행되는 코드를 런타임에 기계어로 컴파일하여 성능을 높인다.
+
+---
+
 # Intro
 
 하드웨어는 개발할 때 사용하는 high level language(e.g. C, Python, Java, JavaScript)를 직접적으로 이해하지 못한다. 하드웨어가 직접 이해하고 실행할 수 있는 언어는 기계어 밖에 없다. 

@@ -7,6 +7,12 @@ tags: [vectordb,recsys]     # TAG names should always be lowercase]
 img_base: /assets/img/2025-04-20-vectordb-faiss
 ---
 
+## TL;DR
+
+의류 아이템 검색 서비스를 위해 VectorDB를 도입했다. VectorDB는 대규모 벡터 검색에서 메모리 안정화와 ANN 기반 연산 가속을 제공한다. 로컬 환경의 유연성과 알고리즘 실험 목적으로 FAISS를 선택했고, 내부 C++ 코드(IndexFlat, IndexFlatCodes 등)의 핸들러 기반 모듈 구조를 분석했다. 다만 실서비스에서는 분산처리를 지원하는 Milvus/Qdrant가 더 적합하다는 결론을 내렸다.
+
+---
+
 # Intro
 
 PPicker 프로젝트에서 의류 아이템을 retrieval 하는 서비스(Vibe Searching)를 만들기 위해서  Vector DB를 적용하고 있다. 사실 VectorDB의 목적, 원리, 구현 모두 이번에 처음 알아봤고 그 내용을 정리하려고 합니다.
