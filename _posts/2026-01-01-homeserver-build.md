@@ -1,11 +1,13 @@
 ---
-title: "홈서버 구축기: 추천시스템부터 이커머스까지 돌리기 위한 데스크탑 서버"
+title: "[홈 서버 로그 #01] 서버 하드웨어 구성과 목표"
 date: 2026-01-01 00:00:00 +0900
 author: oogie
 categories: [infra]
 tags: [homeserver,hardware]     # TAG names should always be lowercase]
 use_math: false
 img_base: /assets/img/2026-01-01-homeserver-build
+series: home-server-log
+series_order: 1
 ---
 
 ## TL;DR

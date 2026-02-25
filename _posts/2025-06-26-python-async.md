@@ -2,8 +2,8 @@
 title: Python 비동기 프로그래밍(async)
 date: 2025-6-27 00:00:00 +0900
 author: oogie
-categories: [backend,python]
-tags: [async]     # TAG names should always be lowercase]
+categories: [backend]
+tags: [asynchronous-programming]     # TAG names should always be lowercase]
 use_math: false
 ---
 

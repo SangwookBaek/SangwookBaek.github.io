@@ -2,8 +2,8 @@
 title: Ontology-based RAG 프로젝트 후기
 date: 2025-05-28 15:50:00 +0900
 author: oogie
-categories: [review,project]
-tags: [RAG,GraphRAG]     # TAG names should always be lowercase]
+categories: [mlops]
+tags: [retrieval-augmented-generation,graph-retrieval-augmented-generation]     # TAG names should always be lowercase]
 img_base: /assets/img/2025-05-28-review-ontologyrag
 use_math: true
 ---

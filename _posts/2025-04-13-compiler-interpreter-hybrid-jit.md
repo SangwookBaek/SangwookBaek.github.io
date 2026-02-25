@@ -2,8 +2,8 @@
 title: 프로그래밍 언어 구동 방식 - 컴파일러,인터프리터, 하이브리드,JIT
 date: 2025-04-13 01:22:00 +0900
 author: oogie
-categories: [Compter_System]
-tags: [computer_system]     # TAG names should always be lowercase]
+categories: [backend]
+tags: [computer-systems]     # TAG names should always be lowercase]
 ---
 
 ## TL;DR

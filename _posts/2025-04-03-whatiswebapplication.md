@@ -2,7 +2,7 @@
 title: 웹 애플리케이션의 구성요소에 대해서
 date: 2025-04-03 22:52:00 +0900
 author: oogie
-categories: [Backend]
+categories: [backend]
 tags: [web]     # TAG names should always be lowercase]
 ---
 

@@ -2,8 +2,8 @@
 title: Vector DB와 Faiss 사용기
 date: 2025-04-20 15:51:00 +0900
 author: oogie
-categories: [VectorDB,recsys,search]
-tags: [vectordb,recsys]     # TAG names should always be lowercase]
+categories: [ml]
+tags: [vector-database,recommender-systems]     # TAG names should always be lowercase]
 img_base: /assets/img/2025-04-20-vectordb-faiss
 ---
 

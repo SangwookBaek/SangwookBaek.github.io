@@ -2,7 +2,7 @@
 title: FastAPI를 왜 쓸까?
 date: 2025-04-03 22:52:00 +0900
 author: oogie
-categories: [Backend]
+categories: [backend]
 tags: [web,fastapi]     # TAG names should always be lowercase]
 img_base: /assets/img/2025-04-03-why-fastapi
 ---

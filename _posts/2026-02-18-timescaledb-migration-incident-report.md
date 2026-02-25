@@ -1,8 +1,8 @@
 ---
-title: "TimescaleDB Migration 장애 복구기: 디스크 풀로 인한 카탈로그 손상과 삽질의 기록"
+title: "TimescaleDB Migration 장애 복구하기: 디스크 풀로 인한 카탈로그 손상에 따른 복구"
 date: 2026-02-18 00:00:00 +0900
 author: oogie
-categories: [database,backend]
+categories: [data-engineering]
 tags: [timescaledb,postgresql,migration]     # TAG names should always be lowercase]
 use_math: false
 ---

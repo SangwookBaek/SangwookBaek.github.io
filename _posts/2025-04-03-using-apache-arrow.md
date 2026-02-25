@@ -2,8 +2,8 @@
 title: Apache Arrow를 이용해서 데이터 빨리 읽기
 date: 2025-04-03 13:59:00 +0900
 author: oogie
-categories: [Data_engineering]
-tags: [apache_arrow]     # TAG names should always be lowercase]
+categories: [data-engineering]
+tags: [apache-arrow]     # TAG names should always be lowercase]
 ---
 
 ## TL;DR

@@ -2,8 +2,8 @@
 title: LightRAG 논문 리뷰
 date: 2025-05-28 15:50:00 +0900
 author: oogie
-categories: [review,article]
-tags: [RAG,GraphRAG]     # TAG names should always be lowercase]
+categories: [ml]
+tags: [retrieval-augmented-generation,graph-retrieval-augmented-generation]     # TAG names should always be lowercase]
 img_base: /assets/img/2025-05-28-review-lightrag
 use_math: true
 ---
