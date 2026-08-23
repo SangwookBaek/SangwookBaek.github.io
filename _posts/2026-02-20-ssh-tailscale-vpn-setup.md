@@ -1,13 +1,12 @@
 ---
-layout: post
 title: "[홈 서버 로그 #03] 포트포워딩 대신 Tailscale VPN으로 SSH 접속"
-date: 2026-02-20 10:00:00 +0900
-categories: [Home Server]
-tags: [Home Server, SSH, Tailscale, VPN, Network]
-image:
-  path: /assets/img/posts/ssh-tailscale-vpn/tailscale-network.png
-  alt: Tailscale을 통한 홈 서버 접속 경로
-series: homeserver
+date: 2026-02-20 00:00:00 +0900
+author: oogie
+categories: [infra]
+tags: [tailscale,virtual-private-network,secure-shell,network]
+use_math: false
+img_base: /assets/img/2026-02-20-ssh-tailscale-vpn-setup
+series: home-server-log
 series_order: 3
 ---
 
@@ -34,8 +33,6 @@ Tailscale은 서버와 내 노트북을 같은 가상 사설망에 넣는 방식
 ```
 
 처음에는 VPN이면 트래픽이 전부 어떤 중앙 서버를 거쳐 갈 거라고 생각했다. Tailscale은 가능한 경우 기기끼리 직접 연결하고, 연결이 어려운 환경에서는 릴레이를 사용한다. 중요한 건 적어도 내가 공유기에 SSH 포트를 외부로 열지 않아도 된다는 점이었다.
-
-![Tailscale 네트워크](/assets/img/posts/ssh-tailscale-vpn/tailscale-network.png)
 
 ## 설치하고 나서 실제로 달라진 것
 

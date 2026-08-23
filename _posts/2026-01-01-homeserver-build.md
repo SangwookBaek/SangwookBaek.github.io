@@ -1,13 +1,12 @@
 ---
-layout: post
 title: "[홈 서버 로그 #01] 서버 하드웨어 구성과 목표"
-date: 2026-01-01 10:00:00 +0900
-categories: [Home Server]
-tags: [Home Server, Hardware, Infrastructure]
-image:
-  path: /assets/img/posts/homeserver-build/homeserver-build-architecture.png
-  alt: 홈 서버 구성도
-series: homeserver
+date: 2026-01-01 00:00:00 +0900
+author: oogie
+categories: [infra]
+tags: [homeserver,hardware]
+use_math: false
+img_base: /assets/img/2026-01-01-homeserver-build
+series: home-server-log
 series_order: 1
 ---
 
@@ -49,7 +48,7 @@ GPU는 RTX 5060 Ti 16GB 두 장으로 구성했다.
 
 여기서 중요한 건 GPU 자체보다 메인보드의 슬롯 구성이었다. ASUS ROG STRIX B650E-E는 두 GPU 슬롯을 x8/x4로 쓸 수 있다. 두 장을 꽂았을 때 두 번째 카드가 아예 제 성능을 못 내는 구성은 피하고 싶었다.
 
-![메인보드 PCIe 슬롯 구성](/assets/img/posts/homeserver-build/motherboard-pcie-slots.png)
+![ASUS ROG STRIX B650E-E]({{ page.img_base }}/motherboard.png){: width="500" }
 
 다만 이게 멀티 GPU 학습을 제대로 하겠다는 의미는 아니다. 지금은 작업을 나눠 쓸 수 있는 여지를 만든 쪽에 가깝다. 실제로 두 GPU가 필요할 만큼의 작업을 하게 될지는 아직 모른다.
 
@@ -64,7 +63,7 @@ GPU는 RTX 5060 Ti 16GB 두 장으로 구성했다.
 | 저장장치 | Samsung 990 Pro 2TB |
 | 파워 | 1200W PSU |
 
-![홈 서버 부품](/assets/img/posts/homeserver-build/homeserver-components.png)
+![부품 구성]({{ page.img_base }}/components.jpeg){: width="500" }
 
 저장장치는 Samsung 990 Pro 2TB를 넣었다. 데이터셋, Docker 이미지, DB 볼륨이 전부 한 곳에 쌓이게 될 테니 속도도 필요했지만, 지금은 용량보다 백업 전략을 먼저 고민해야 할 것 같다. SSD 하나가 곧 서버 전체의 데이터가 되는 구조이기 때문이다.
 

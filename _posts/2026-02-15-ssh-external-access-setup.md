@@ -1,13 +1,12 @@
 ---
-layout: post
 title: "[홈 서버 로그 #02] 외부 SSH 접속과 포트포워딩"
-date: 2026-02-15 10:00:00 +0900
-categories: [Home Server]
-tags: [Home Server, SSH, Network, Port Forwarding]
-image:
-  path: /assets/img/posts/ssh-external-access/network-topology.png
-  alt: 홈 네트워크 구성과 SSH 접속 경로
-series: homeserver
+date: 2026-02-15 00:00:00 +0900
+author: oogie
+categories: [infra]
+tags: [secure-shell,port-forwarding,network]
+use_math: false
+img_base: /assets/img/2026-02-15-ssh-external-access-setup
+series: home-server-log
 series_order: 2
 ---
 
@@ -48,7 +47,7 @@ curl ifconfig.me
 
 그러면 공유기에게 그 규칙을 알려줘야 했다. 그게 포트포워딩이었다.
 
-![홈 네트워크 토폴로지](/assets/img/posts/ssh-external-access/network-topology.png)
+![GNT2400 모뎀]({{ page.img_base }}/modem.jpeg){: width="400" }
 
 ## 우리 집에서는 어느 장비가 공유기일까?
 
