@@ -1,20 +1,61 @@
 # 작업 컨텍스트 — GPU 메모리 풀 글 (집 GPU에서 이어서)
 
-작성 2026-08-22. 회사 노트북에서 여기까지 하고 끊음.
+최초 작성 2026-08-22. 본문 재구성 2026-10-16.
+
+## 2026-10-16 재작성
+
+1부와 2부로 나누려던 내용을 기존 post 한 편으로 연결했다. 출발점은 원래 초안의
+워커 OOM과 메모리 카운터이고, 질문의 흐름은 다음과 같다.
+
+누수 의심 → 왜 캐시를 보관하나 → 다음 요청이 CuPy라면 → 같은 resource로 연결 →
+재사용을 뒷받침하는 측정 → 관측과 반납 책임의 이동 → 메모리 압박 상황의 미검증 동작.
+
+재작성 후 2026-10-16 H100 PCIe GPU 1에서 소규모 실험을 재실행했다.
+PyTorch 2.8.0+cu126 / CuPy 13.6.0 / RMM 26.02.00 / Python 3.10.20.
+기존 dev 이미지로 네트워크 없는 별도 read-only 컨테이너를 사용했다. 워커 설정은 바꾸지 않았다.
+
+- `assets/experiments/rmm-memory-pool/measure.py`: 재사용 512 MiB, 반납 2048 MiB 시나리오.
+- 각 시나리오 × default/RMM × 3회, 모두 새 프로세스. 총 12회.
+- 실측 원본과 실행 로그는 로컬에만 보관하고 블로그에는 올리지 않는다.
+- `assets/img/posts/rmm-memory-pool/`: 실제 주피터 코드와 출력만 자른 PNG 9장.
+- segment/block 및 RMM 재사용·반납 노트북은 실행한 뒤 저장 출력을 비워 코드만 첨부했다.
+- 게시일과 글 파일명을 2026-10-16으로 변경했다.
+- 모든 반복에서 CuPy 추가 할당 default 512 / RMM 0 MiB.
+- 반납 실험 RMM은 해제 후 2048, 동기화 후 1024, empty_cache 후 1024 MiB.
+- 반납 실험 default는 해제 후 2048, 동기화 후 2048, empty_cache 후 0 MiB.
+- STEP 7 직접 cudaMalloc과 STEP 8 OOM은 이번에 실행하지 않았다.
+
+기존 노트북에는 여전히 실행 출력이 없다. 아래 8월 수치와 새 실측 자료를 구분한다.
+
+기존 해석 중 다음은 수정했다.
+
+- `reserved - allocated` 전체를 즉시 재사용·반납할 수 있다고 단정하지 않는다.
+- 한 번의 카운터 관찰로 누수 부재나 원래 OOM 원인을 확정하지 않는다.
+- PyTorch 카운터 예외와 반납 함수의 회수량은 당시 버전·연결 방식의 결과로 한정한다.
+- `release_threshold`는 할당 상한도, 유휴 시 보유량 보장도 아니다.
+- STEP 7의 추가 할당은 메모리 압박 상태에서의 실패를 증명하지 않는다. NVIDIA 문서에는
+  같은 프로세스의 `cudaMalloc` 요청을 위해 CUDA 풀이 가진 미사용 메모리를 회수할 수
+  있다고 명시돼 있다. STEP 8의 raw malloc 실패 예상은 재검토해야 한다.
+
+근거: [NVIDIA stream-ordered allocator 설명](https://developer.nvidia.com/blog/using-cuda-stream-ordered-memory-allocator-part-1/).
+본문에도 관련 공식 문서를 문단별로 연결했다. 아래 기대값 표와 노트북은 8월 실험 설계를
+보존한 것이며, 특히 STEP 8 예상은 검증된 결과가 아니다.
 
 ## 지금 상태
 
 | 파일 | 상태 |
 |---|---|
-| `_posts/2026-08-10-gpu-memory-reserved-allocated-caching-allocator.md` | 6절 끝 `*(작성 중)*` 에서 멈춤. 8262 바이트 |
+| `_posts/2026-10-16-gpu-memory-reserved-allocated-caching-allocator.md` | RMM 실험까지 이어지는 한 편으로 재작성. STEP 8과 실제 워커 적용 효과는 미검증 |
 | `assets/notebooks/gpu-memory-pool-sharing.ipynb` | 완성. 32셀 / 코드 13개. **아직 실행 안 함(출력 비어 있음)** |
 | `_drafts/gpu-memory-pool-context.md` | 이 파일 |
 
-## 할 일 (집에서)
+## 남은 실험
 
-1. 노트북을 GPU 머신에서 **두 번** 돌린다 (`USE_RMM=False` → 커널 재시작 → `True`)
-2. 판정표 실측값을 채운다. 특히 STEP 8 — 회사에서 못 돌린 유일한 단계
-3. 그 숫자로 글을 마무리한다
+1. STEP 8의 실패 예상을 다시 검토한다. 풀을 직접 재사용하는 경로와 CUDA가 회수하는
+   경로를 구분하고, 각 요청 직전의 실제 드라이버 여유와 동기화 상태를 기록해야 한다.
+2. 실험 코드와 판정표를 검토한 뒤 독점 사용 가능한 GPU에서 두 회차를 실행한다
+   (`USE_RMM=False` → 커널 재시작 → `True`).
+3. 출력과 실행 환경을 함께 저장하고 본문에 검증 범위를 갱신한다.
 
 ## 노트북 돌리기
 
@@ -50,7 +91,7 @@ jupyter lab
   STEP 8 의 cupy/생 malloc 이 그냥 성공해버리고 실험이 성립하지 않는다
 - `RUN_FILL_TEST = True` — 카드를 거의 꽉 채운다. 세션이 죽으면 재시작하고 False
 
-## 회사에서 이미 측정한 값
+## 8월에 기록한 측정값과 당시 예상
 
 H100 / worker 이미지 (torch 2.8.0+cu126, cupy 13.6.0, rmm 26.02.00).
 집에서 나온 숫자와 대조용. **STEP 8 만 빠져 있다** — GPU 를 74 GB 까지 채우는 단계라
@@ -100,51 +141,27 @@ STEP 6 시작 시점 대비 증분으로 재고 있었는데, 그때 이미 앞 
 쥐여 있어서 1024 가 512 로 나왔다. 풀이 비어 있던 STEP 1 기준으로 바꾸니 맞았다.
 글에 쓸지는 선택 — "델타로 재면 안 된다" 는 교훈은 쓸모 있다.
 
-## 글 구성 — 결정할 것
+## 원래 구상과 현재 구성
 
-지금 초안(1부)은 **결말이 실제 결론과 반대 방향**이다. 6절까지 읽으면 "`empty_cache()` 를
-부르면 된다" 로 끝날 흐름인데, 노트북이 보여주는 결론은 그 반대(풀을 합쳐서 **쥐고 있게**
-만들기)다. 그래서 이어붙이려면 뒷부분을 손봐야 한다.
+8월에는 캐싱 할당자 설명을 1부로 끝내고, RMM 실험을 2부로 쓰려 했다.
+현재 본문은 세그먼트 크기 등 질문에 직접 필요하지 않은 세부를 덜어내고,
+왜 반납을 고민하다 공유 풀을 실험하게 됐는지 한 편으로 이어지게 했다.
 
-두 편 분리를 추천. 지금 8 KB 에 풀 합치기까지 넣으면 너무 길다.
+실제 워크로드에는 PyTorch와 CuPy 외의 할당 경로도 있다. 노트북은 둘로 줄여 비교하고
+직접 `cudaMalloc`을 호출하는 경로를 대조군으로 둔 것이다. 실제 워커의 OOM 해결이나
+성능 개선은 이 실험만으로 확인한 것이 아니다.
 
-### 1부 (지금 글) — 마무리만
+## Segment / block 노트북 실측 추가
 
-제목 그대로 "GPU 사용률은 0%인데 메모리가 안 빠진다". 6절(파편화) 뒤에 붙일 것:
-
-- `empty_cache()` 로 해결되는 경우와 안 되는 경우
-- **안 되는 경우가 왜 생기는지**로 2부 예고 — 한 프로세스에 할당자가 하나가 아닐 때
-
-### 2부 (새 글) — 노트북이 본론
-
-제안 뼈대:
-
-1. 문제 — 한 프로세스, 두 할당자. torch 가 15 GB 쥐고 14 GB 가 비어 있어도 cupy 에게는
-   존재하지 않는 메모리다 (STEP 3, STEP 8)
-2. 해결 — RMM 으로 풀 하나에 물리기. torch/cupy 각각 한 줄
-3. 대가 세 개
-   - torch 카운터가 예외를 던진다 (STEP 4) — 메모리를 진단하려고 넣은 도구가 진단 수단을 없앤다
-   - `free_all_blocks()` 가 조용히 no-op (STEP 5) — 에러가 안 나서 더 위험하다
-   - 반납이 임계값에 묶이고, 그마저 동기화 지점에서만 (STEP 6)
-4. 한계 — 스스로 `cudaMalloc` 하는 라이브러리는 여전히 굶는다 (STEP 7, STEP 8).
-   할당자 훅을 제공하는 라이브러리만 편입 가능
-5. 결론 — 판단 기준은 "공유가 되는가" 가 아니라 **"내 프로세스의 할당자를 전부 편입할 수
-   있는가"**. 하나라도 밖에 남으면 통합 이득은 부분만 받고 관측성과 반납은 잃는다
-
-실제 상황에서는 할당자가 둘이 아니라 넷쯤 된다(직접 만든 커널, CUDA 솔버 라이브러리 등).
-노트북은 개념만 보이게 둘로 줄였고, 생 `cudaMalloc` 이 "훅을 안 주는 라이브러리" 역할이다.
-
-## front matter
-
-1부 것을 그대로 쓰면 된다. 2부는 날짜만 바꾸고 `tags` 에 `rmm` 추가.
-
-```yaml
----
-title: "..."
-date: 2026-08-XX 00:00:00 +0900
-author: oogie
-categories: [infra]
-tags: [cuda,pytorch,gpu,memory,rmm]
-use_math: false
----
-```
+- `assets/notebooks/pytorch-segment-blocks.ipynb`: H100 GPU 1의 독립 컨테이너에서
+  nbclient + ipykernel로 실제 실행. 출력과 실행 시각 metadata 보존.
+- PyTorch 2.8.0+cu126, native, expandable_segments=False. 텐서 최대 10 MiB,
+  segment 20 MiB. 원본 snapshot은 `segment-snapshots-20261016.json`.
+- 4+6 MiB → 20 MiB segment의 4 active / 6 active / 10 inactive.
+- a 삭제 → 4 inactive / 6 active / 10 inactive.
+- 3 MiB c → a의 주소 재사용, block은 4 MiB 전체 사용. requested_size는 3 MiB.
+  should_split의 큰 block 경로는 remaining > 1 MiB이므로 남는 1 MiB는 분할하지 않음.
+- b,c 삭제 → 20 MiB inactive 하나로 병합. empty_cache 뒤 snapshot 빈 목록.
+- 실제 실행 노트북 HTML 화면을 CUA screenshot으로 PNG 두 장 저장해 본문 삽입.
+- 첫 컨테이너는 tmpfs noexec로 Jupyter 확장 모듈 로딩 실패. 임시 mount에 exec를
+  지정한 별도 컨테이너에서 실행했고, tensor_mib 출력 추가 후 전체 재실행함.
