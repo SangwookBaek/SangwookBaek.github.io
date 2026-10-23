@@ -1,0 +1,39 @@
+services:
+  postgres:
+    image: postgres:18@sha256:edb0c08dc33befd0262ab3b5cf1c4f3f8cfd8b09e88c05b45adee29d6761ddb6
+    environment:
+      POSTGRES_USER: lab
+      POSTGRES_PASSWORD: lab
+      POSTGRES_DB: lab
+    command: [postgres, -c, max_connections=150, -c, shared_buffers=128MB]
+    ports: ["127.0.0.1:55432:5432"]
+    mem_limit: 1g
+    cpus: 2
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U lab -d lab"]
+      interval: 2s
+      retries: 60
+  mysql:
+    image: mysql:8.4@sha256:76f0358884cb92d9a086d24e5671c38048d3fef40f2588703d73eb55392d6b69
+    environment:
+      MYSQL_ROOT_PASSWORD: lab
+      MYSQL_DATABASE: lab
+      MYSQL_USER: lab
+      MYSQL_PASSWORD: lab
+    command: ["--max-connections=150", "--innodb-buffer-pool-size=134217728"]
+    ports: ["127.0.0.1:53306:3306"]
+    mem_limit: 1g
+    cpus: 2
+    healthcheck:
+      test: [CMD-SHELL, "mysqladmin ping -h 127.0.0.1 -uroot -plab --silent"]
+      interval: 2s
+      retries: 60
+  pgbouncer:
+    build: .
+    ports: ["127.0.0.1:56432:6432"]
+    volumes: ["./pgbouncer.ini:/etc/pgbouncer.ini:ro", "./users.txt:/etc/users.txt:ro"]
+    mem_limit: 128m
+    cpus: 2
+    depends_on:
+      postgres:
+        condition: service_healthy

@@ -1,0 +1,6 @@
+psycopg[binary]==3.3.6
+pymysql==1.2.3
+cryptography==50.0.2
+nbformat==5.11.1
+nbclient==0.11.0
+ipykernel==7.4.0
