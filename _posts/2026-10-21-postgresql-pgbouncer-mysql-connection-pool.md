@@ -2,7 +2,7 @@
 title: "PostgreSQL에서 PgBouncer는 필수인가?"
 date: 2026-10-21 00:00:00 +0900
 author: oogie
-categories: [backend]
+categories: [backend, database]
 tags: [postgresql,mysql,pgbouncer,connection-pool,kubernetes]
 use_math: false
 mermaid: true

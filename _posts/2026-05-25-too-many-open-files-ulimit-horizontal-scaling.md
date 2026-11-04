@@ -1,8 +1,9 @@
 ---
 title: "too many open files 원인 찾기"
+description: "Janus Gateway 기반 WebRTC 서버에 too many open files가 계속 찍혔다. 수평확장으로도 에러가 사라지지 않은 이유를 따라갔다."
 date: 2026-05-25 00:00:00 +0900
 author: oogie
-categories: [infra]
+categories: [infra, container]
 tags: [docker,ulimit,file-descriptor]
 use_math: false
 ---

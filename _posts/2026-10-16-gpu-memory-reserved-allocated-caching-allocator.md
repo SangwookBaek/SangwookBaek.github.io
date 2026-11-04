@@ -2,7 +2,7 @@
 title: "GPU 메모리를 비우려다, RMM으로 풀을 합치게 된 이유"
 date: 2026-10-16 00:00:00 +0900
 author: oogie
-categories: [infra]
+categories: [infra, gpu]
 tags: [cuda,pytorch,gpu,memory,rmm]
 use_math: false
 ---

@@ -1,8 +1,9 @@
 ---
 title: FastAPI를 왜 쓸까?
+description: "FastAPI가 빠른 이유는 ASGI 기반의 uvicorn 위에서 비동기 처리를 지원하기 때문이다."
 date: 2025-04-03 22:52:00 +0900
 author: oogie
-categories: [backend]
+categories: [backend, web]
 tags: [web,fastapi]     # TAG names should always be lowercase]
 img_base: /assets/img/2025-04-03-why-fastapi
 ---

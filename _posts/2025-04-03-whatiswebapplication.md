@@ -1,8 +1,9 @@
 ---
 title: 웹 애플리케이션의 구성요소에 대해서
+description: "웹 서버(Nginx), WAS(Gunicorn/Uvicorn), 웹 프레임워크(FastAPI/Django)의 역할과 관계를 정리했다."
 date: 2025-04-03 22:52:00 +0900
 author: oogie
-categories: [backend]
+categories: [backend, web]
 tags: [web]     # TAG names should always be lowercase]
 ---
 

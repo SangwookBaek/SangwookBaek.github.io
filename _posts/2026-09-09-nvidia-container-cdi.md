@@ -2,7 +2,7 @@
 title: "컨테이너의 CUDA 초기화 실패를 CDI로 해결하기"
 date: 2026-09-09 00:00:00 +0900
 author: oogie
-categories: [infra]
+categories: [infra, gpu]
 tags: [cdi, docker, containerd, gpu, cuda, linux]
 use_math: false
 ---

@@ -1,8 +1,9 @@
 ---
 title: "[홈 서버 로그 #03] 포트포워딩 대신 Tailscale VPN으로 SSH 접속"
+description: "포트포워딩으로 외부 SSH 접속을 열고 나니 꼭 공개 포트를 열어야 하나라는 질문이 생겼다. 그러다 Tailscale을 알게 됐다."
 date: 2026-02-20 00:00:00 +0900
 author: oogie
-categories: [infra]
+categories: [infra, homeserver]
 tags: [tailscale,virtual-private-network,secure-shell,network]
 use_math: false
 img_base: /assets/img/2026-02-20-ssh-tailscale-vpn-setup

@@ -1,8 +1,9 @@
 ---
 title: Vector DB와 Faiss 사용기
+description: "의류 아이템 검색 서비스를 위해 VectorDB를 도입했고, FAISS를 선택해 내부 구조를 분석했다."
 date: 2025-04-20 15:51:00 +0900
 author: oogie
-categories: [ml]
+categories: [ml, retrieval]
 tags: [vector-database,recommender-systems]     # TAG names should always be lowercase]
 img_base: /assets/img/2025-04-20-vectordb-faiss
 ---

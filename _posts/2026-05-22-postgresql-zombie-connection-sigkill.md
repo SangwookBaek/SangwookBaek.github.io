@@ -2,8 +2,8 @@
 layout: post
 title: "Pod이 SIGKILL되면 PostgreSQL 커넥션은 어떻게 될까"
 date: 2026-05-22 10:00:00 +0900
-categories: [PostgreSQL, Kubernetes]
-tags: [PostgreSQL, Kubernetes, Connection Pool, SIGKILL, Incident]
+categories: [backend, database]
+tags: [postgresql,kubernetes,connection-pool,sigkill,incident]
 ---
 
 ## 이상했던 건 죽은 Pod보다 살아남은 Pod이었다
