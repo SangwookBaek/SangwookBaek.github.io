@@ -3,7 +3,7 @@ title: 프로그래밍 언어 구동 방식 - 컴파일러,인터프리터, 하�
 description: "프로그래밍 언어의 4가지 실행 방식인 컴파일러, 인터프리터, 하이브리드, JIT를 정리했다."
 date: 2025-04-13 01:22:00 +0900
 author: oogie
-categories: [backend, fundamentals]
+categories: [cs]
 tags: [computer-systems]     # TAG names should always be lowercase]
 ---
 

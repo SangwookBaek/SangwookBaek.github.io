@@ -3,7 +3,7 @@ title: Python 비동기 프로그래밍(async)
 description: "Python의 async/await는 코루틴 기반의 비동기 프로그래밍 방식이다. 스레드·프로세스와의 차이와 코루틴의 동작 원리를 정리했다."
 date: 2025-6-27 00:00:00 +0900
 author: oogie
-categories: [backend, fundamentals]
+categories: [cs]
 tags: [asynchronous-programming]     # TAG names should always be lowercase]
 use_math: false
 ---
