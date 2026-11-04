@@ -1,8 +1,9 @@
 ---
 title: "[홈 서버 로그 #02] 외부 SSH 접속과 포트포워딩"
+description: "홈 서버에 밖에서도 SSH로 접속하고 싶었다. 집 안에서는 주소인 192.168.x.x가 왜 집 밖에서는 아무 의미가 없는지 따라가며 포트포워딩을 설정했다."
 date: 2026-02-15 00:00:00 +0900
 author: oogie
-categories: [infra]
+categories: [infra, homeserver]
 tags: [secure-shell,port-forwarding,network]
 use_math: false
 img_base: /assets/img/2026-02-15-ssh-external-access-setup

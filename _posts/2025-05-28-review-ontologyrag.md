@@ -1,8 +1,9 @@
 ---
 title: Ontology-based RAG 프로젝트 후기
+description: "OSSCA에서 Ontology 기반 GraphRAG 프로젝트에 참여해, 정책 변화에 따른 리스크 영향도를 분석하는 RAG 시스템을 구축했다."
 date: 2025-05-28 15:50:00 +0900
 author: oogie
-categories: [mlops]
+categories: [ml, retrieval]
 tags: [retrieval-augmented-generation,graph-retrieval-augmented-generation]     # TAG names should always be lowercase]
 img_base: /assets/img/2025-05-28-review-ontologyrag
 use_math: true

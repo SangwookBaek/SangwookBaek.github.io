@@ -178,6 +178,10 @@ collections:
 
 defaults:
   - scope:
+      path: google55f9ac3f230256c0.html
+    values:
+      sitemap: false
+  - scope:
       path: "" # An empty string here means all files in the project
       type: posts
     values:

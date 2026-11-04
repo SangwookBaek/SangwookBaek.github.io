@@ -1,8 +1,9 @@
 ---
 title: "[홈 서버 로그 #01] 서버 하드웨어 구성과 목표"
+description: "추천 시스템을 직접 만들고 계속 고쳐 나갈 환경이 필요해서 홈 서버를 구성했다. 어떤 부품을 샀는지보다 왜 이 정도 구성이 필요하다고 판단했는지를 정리했다."
 date: 2026-01-01 00:00:00 +0900
 author: oogie
-categories: [infra]
+categories: [infra, homeserver]
 tags: [homeserver,hardware]
 use_math: false
 img_base: /assets/img/2026-01-01-homeserver-build

@@ -1,8 +1,9 @@
 ---
 title: LightRAG 논문 리뷰
+description: "LightRAG는 기존 RAG의 flat한 벡터 검색 한계를 knowledge graph 구조로 보완한 프레임워크다."
 date: 2025-05-28 15:50:00 +0900
 author: oogie
-categories: [ml]
+categories: [ml, retrieval]
 tags: [retrieval-augmented-generation,graph-retrieval-augmented-generation]     # TAG names should always be lowercase]
 img_base: /assets/img/2025-05-28-review-lightrag
 use_math: true

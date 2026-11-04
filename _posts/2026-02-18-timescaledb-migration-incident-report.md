@@ -2,8 +2,8 @@
 layout: post
 title: "TimescaleDB Migration 장애 복구하기: 디스크 풀로 인한 카탈로그 손상에 따른 복구"
 date: 2026-02-18 10:00:00 +0900
-categories: [Database]
-tags: [PostgreSQL, TimescaleDB, Migration, Incident, Recovery]
+categories: [backend, database]
+tags: [postgresql,timescaledb,migration,incident,recovery]
 ---
 
 ## UUID를 String으로 바꾸는 일은 왜 이렇게 커졌을까

@@ -1,8 +1,9 @@
 ---
 title: Apache Arrow를 이용해서 데이터 빨리 읽기
+description: "MovieLens 데이터 로딩 속도 개선을 위해 pandas, Dask, Apache Arrow를 비교했다."
 date: 2025-04-03 13:59:00 +0900
 author: oogie
-categories: [data-engineering]
+categories: [ml, data]
 tags: [apache-arrow]     # TAG names should always be lowercase]
 ---
 
