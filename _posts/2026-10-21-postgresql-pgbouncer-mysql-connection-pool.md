@@ -1,5 +1,5 @@
 ---
-title: "PgBouncer는 왜 필요할까? PostgreSQL과 MySQL의 커넥션 이야기"
+title: "PostgreSQL에서 PgBouncer는 필수인가?"
 date: 2026-10-21 00:00:00 +0900
 author: oogie
 categories: [backend]
