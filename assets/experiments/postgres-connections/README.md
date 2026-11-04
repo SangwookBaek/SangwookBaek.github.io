@@ -11,11 +11,18 @@ uv pip install --python .venv/bin/python -r requirements.txt
 ```
 
 Open `experiment.ipynb`, select the `connection-lab` kernel, and run cells in order.
-Start from newly restarted containers for a fresh baseline. The two observer
-connections remain open during measurement and are excluded from application
-connection counts. OS counts include database background processes and threads.
-Memory values are medians of five immediate cgroup samples, not five independent
-benchmark runs. The experiments use SELECT 1 and pg_sleep, with no dataset.
+Start from newly restarted containers for a fresh baseline. Before and after the
+direct-connection cells open 40 connections, inspect each database container from
+a terminal:
+
+```sh
+docker top blog-connection-lab-postgres-1 -o pid,nlwp,args
+docker exec blog-connection-lab-postgres-1 cat /sys/fs/cgroup/memory.current
+docker exec blog-connection-lab-postgres-1 grep '^anon ' /sys/fs/cgroup/memory.stat
+```
+
+Process and thread counts include database background workers. The experiments
+use SELECT 1 and pg_sleep, with no dataset.
 
 The old_pod/new_pod lists model groups of held client connections; they do not
 create Kubernetes pods or SQLAlchemy pools. After the run, stop the lab with:
